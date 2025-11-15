@@ -66,7 +66,26 @@ cd template-builder
 
 ```bash
 npm install yaml lucide-react @stylexjs/stylex
-npm install -D @types/node @stylexjs/nextjs-plugin @stylexjs/babel-plugin
+npm install -D @types/node @stylexswc/nextjs-plugin
+```
+
+**중요**: `@stylexjs/nextjs-plugin`과 `@stylexjs/babel-plugin`은 deprecated되었습니다. 대신 `@stylexswc/nextjs-plugin`을 사용하세요.
+
+#### 1.2.1 Next.js 설정 (next.config.ts)
+
+```typescript
+import type { NextConfig } from "next";
+import stylexPlugin from "@stylexswc/nextjs-plugin/turbopack";
+
+const nextConfig: NextConfig = {
+  /* config options here */
+};
+
+export default stylexPlugin({
+  rsOptions: {
+    dev: process.env.NODE_ENV !== "production",
+  },
+})(nextConfig);
 ```
 
 #### 1.3 폴더 구조 생성

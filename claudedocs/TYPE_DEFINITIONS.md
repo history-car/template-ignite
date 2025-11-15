@@ -268,10 +268,10 @@ import { SectionProps, ThemeOverride } from './section.types';
 // 섹션 설정 (YAML/JSON에서 파싱)
 // ==========================================
 
-export interface SectionConfig {
+export interface SectionConfig<TContent = unknown> {
   type: 'hero' | 'features' | 'cta' | 'testimonials' | 'contact';
   variant: string;  // 예: "HeroCenteredImage"
-  content: Record<string, any>;  // 런타임에 검증
+  content: TContent;
   theme?: ThemeOverride;
 }
 
@@ -325,7 +325,7 @@ export interface ClientConfig {
     template: string;  // 사용할 템플릿 이름
   };
   overrides?: {
-    [sectionType: string]: Partial<Record<string, any>>;
+    [sectionType: string]: Record<string, unknown>;
   };
   theme?: Partial<PageConfig['theme']>;
   seo?: Partial<PageConfig['seo']>;
@@ -335,10 +335,10 @@ export interface ClientConfig {
 // 런타임 섹션 (빌드 시 생성)
 // ==========================================
 
-export interface ResolvedSection {
+export interface ResolvedSection<TProps extends BaseSectionProps = SectionProps> {
   id: string;
-  component: React.ComponentType<any>;
-  props: SectionProps;
+  component: React.ComponentType<TProps>;
+  props: TProps;
 }
 
 // ==========================================
@@ -456,10 +456,10 @@ export interface BuildConfig {
 // 검증 설정
 // ==========================================
 
-export interface ValidationRule {
+export interface ValidationRule<T = unknown> {
   field: string;
   type: 'required' | 'optional' | 'array' | 'object';
-  validator?: (value: any) => boolean;
+  validator?: (value: T) => boolean;
   errorMessage?: string;
 }
 
@@ -471,16 +471,16 @@ export interface ValidationSchema {
 // 에러 타입
 // ==========================================
 
-export interface ValidationError {
+export interface ValidationError<T = unknown> {
   field: string;
   message: string;
-  received?: any;
+  received?: T;
 }
 
-export interface BuildError {
+export interface BuildError<TDetails = unknown> {
   type: 'validation' | 'build' | 'runtime';
   message: string;
-  details?: any;
+  details?: TDetails;
 }
 ```
 
@@ -599,11 +599,11 @@ export interface ContactFormProps extends BaseSectionProps {
 ### `src/types/page.types.ts` (프로토타입)
 
 ```typescript
-export interface SectionConfig {
+export interface SectionConfig<TContent = unknown> {
   type: string;
   variant: string;
-  content: Record<string, any>;
-  theme?: any;
+  content: TContent;
+  theme?: ThemeOverride;
 }
 
 export interface PageConfig {
