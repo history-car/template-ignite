@@ -1,0 +1,368 @@
+{
+  "page": {
+    "title": "크리에이티브 디자인 스튜디오 - PixelCraft",
+    "description": "브랜드에 생명을 불어넣는 디자인 전문가 팀"
+  },
+  "sections": [
+    {
+      "type": "hero",
+      "variant": "HeroSplitLayout",
+      "content": {
+        "headline": "당신의 브랜드를 빛나게 만듭니다",
+        "subheadline": "크리에이티브 디자인 스튜디오",
+        "description": "PixelCraft는 브랜딩, UI/UX 디자인, 웹 개발을 전문으로 하는 크리에이티브 에이전시입니다. 10년 이상의 경험으로 200개 이상의 브랜드를 성공으로 이끌었습니다.",
+        "cta": {
+          "text": "프로젝트 상담하기",
+          "href": "#contact"
+        },
+        "secondaryCta": {
+          "text": "포트폴리오 보기",
+          "href": "#portfolio"
+        },
+        "image": {
+          "src": "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=80",
+          "alt": "디자인 작업 중인 팀"
+        }
+      }
+    },
+    {
+      "type": "stats",
+      "variant": "StatsHighlight",
+      "content": {
+        "sectionTitle": "숫자로 보는 우리의 성과",
+        "stats": [
+          {
+            "value": "200+",
+            "label": "완료한 프로젝트",
+            "icon": "Briefcase",
+            "description": "다양한 산업 분야의 성공적인 프로젝트"
+          },
+          {
+            "value": "150+",
+            "label": "만족한 클라이언트",
+            "icon": "Users",
+            "description": "전 세계 기업들과 함께한 협업"
+          },
+          {
+            "value": "15+",
+            "label": "수상 경력",
+            "icon": "Award",
+            "description": "국내외 디자인 어워드 수상"
+          },
+          {
+            "value": "98%",
+            "label": "재계약률",
+            "icon": "TrendingUp",
+            "description": "높은 고객 만족도와 신뢰"
+          }
+        ]
+      }
+    },
+    {
+      "type": "features",
+      "variant": "FeaturesDetailed",
+      "content": {
+        "sectionTitle": "우리의 전문 서비스",
+        "features": [
+          {
+            "icon": "Palette",
+            "title": "브랜드 아이덴티티",
+            "description": "로고, 컬러 팔레트, 타이포그래피부터 브랜드 가이드라인까지. 당신의 브랜드가 시장에서 돋보일 수 있도록 완벽한 아이덴티티를 구축합니다.",
+            "details": [
+              "로고 디자인 및 리브랜딩",
+              "브랜드 가이드라인 제작",
+              "패키징 디자인",
+              "마케팅 콜래터럴"
+            ]
+          },
+          {
+            "icon": "Smartphone",
+            "title": "UI/UX 디자인",
+            "description": "사용자 중심의 직관적인 인터페이스 디자인으로 제품의 가치를 극대화합니다. 리서치부터 프로토타입, 사용성 테스트까지 전 과정을 책임집니다.",
+            "details": [
+              "사용자 리서치 및 분석",
+              "와이어프레임 및 프로토타입",
+              "모바일 앱 디자인",
+              "웹 인터페이스 디자인"
+            ]
+          },
+          {
+            "icon": "Code",
+            "title": "웹 개발",
+            "description": "최신 기술 스택을 활용한 반응형 웹사이트 개발. 디자인과 개발의 완벽한 조화로 빠르고 아름다운 웹 경험을 제공합니다.",
+            "details": [
+              "반응형 웹사이트 개발",
+              "프론트엔드 개발 (React, Next.js)",
+              "CMS 통합 (WordPress, Contentful)",
+              "성능 최적화 및 SEO"
+            ]
+          }
+        ],
+        "image": {
+          "src": "https://images.unsplash.com/photo-1542744094-3a31f272c490?w=600&q=80",
+          "alt": "디자인 프로세스"
+        }
+      }
+    },
+    {
+      "type": "team",
+      "variant": "TeamCards",
+      "content": {
+        "sectionTitle": "크리에이티브 팀을 소개합니다",
+        "sectionDescription": "다양한 분야의 전문가들이 모여 최고의 결과물을 만들어냅니다",
+        "members": [
+          {
+            "name": "김지우",
+            "role": "Creative Director",
+            "bio": "15년 경력의 크리에이티브 디렉터. 국내외 유수 브랜드의 아이덴티티를 구축했으며, Red Dot Award 등 다수 수상.",
+            "image": {
+              "src": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80",
+              "alt": "김지우"
+            },
+            "social": [
+              {
+                "platform": "LinkedIn",
+                "url": "https://linkedin.com",
+                "icon": "Linkedin"
+              },
+              {
+                "platform": "Behance",
+                "url": "https://behance.net",
+                "icon": "Dribbble"
+              }
+            ]
+          },
+          {
+            "name": "박성준",
+            "role": "Lead UI/UX Designer",
+            "bio": "사용자 경험 디자인 전문가. 대형 테크 기업에서 10년간 근무하며 수백만 사용자의 제품을 디자인.",
+            "image": {
+              "src": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&q=80",
+              "alt": "박성준"
+            },
+            "social": [
+              {
+                "platform": "LinkedIn",
+                "url": "https://linkedin.com",
+                "icon": "Linkedin"
+              },
+              {
+                "platform": "Twitter",
+                "url": "https://twitter.com",
+                "icon": "Twitter"
+              }
+            ]
+          },
+          {
+            "name": "이수민",
+            "role": "Senior Developer",
+            "bio": "풀스택 개발자로 프론트엔드부터 백엔드까지 모든 영역을 아우르는 전문가. 최신 기술 트렌드를 선도.",
+            "image": {
+              "src": "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&q=80",
+              "alt": "이수민"
+            },
+            "social": [
+              {
+                "platform": "GitHub",
+                "url": "https://github.com",
+                "icon": "Github"
+              },
+              {
+                "platform": "LinkedIn",
+                "url": "https://linkedin.com",
+                "icon": "Linkedin"
+              }
+            ]
+          },
+          {
+            "name": "최현우",
+            "role": "Brand Strategist",
+            "bio": "브랜드 전략 및 마케팅 전문가. 데이터 기반 인사이트로 브랜드 성장을 이끄는 전략가.",
+            "image": {
+              "src": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80",
+              "alt": "최현우"
+            },
+            "social": [
+              {
+                "platform": "LinkedIn",
+                "url": "https://linkedin.com",
+                "icon": "Linkedin"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "type": "testimonials",
+      "variant": "TestimonialsGrid",
+      "content": {
+        "sectionTitle": "클라이언트 후기",
+        "sectionDescription": "함께한 브랜드들의 진솔한 이야기",
+        "testimonials": [
+          {
+            "quote": "PixelCraft 팀의 창의성과 전문성에 깊은 인상을 받았습니다. 우리 브랜드의 본질을 완벽하게 이해하고 시각화해주었습니다.",
+            "author": "강민지",
+            "role": "CEO",
+            "company": "패션브랜드 A",
+            "image": {
+              "src": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&q=80",
+              "alt": "강민지"
+            },
+            "rating": 5
+          },
+          {
+            "quote": "UI/UX 리디자인 프로젝트를 진행했는데, 사용자 만족도가 35% 향상되었습니다. 데이터 기반의 접근 방식이 인상적이었습니다.",
+            "author": "정현수",
+            "role": "Product Manager",
+            "company": "테크스타트업 B",
+            "image": {
+              "src": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&q=80",
+              "alt": "정현수"
+            },
+            "rating": 5
+          },
+          {
+            "quote": "웹사이트 리뉴얼 후 전환율이 50% 증가했습니다. 디자인뿐만 아니라 비즈니스 목표까지 고려한 솔루션을 제공해주셨습니다.",
+            "author": "윤서아",
+            "role": "Marketing Director",
+            "company": "이커머스 C",
+            "image": {
+              "src": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&q=80",
+              "alt": "윤서아"
+            },
+            "rating": 5
+          }
+        ]
+      }
+    },
+    {
+      "type": "faq",
+      "variant": "FAQTwoColumn",
+      "content": {
+        "sectionTitle": "자주 묻는 질문",
+        "faqs": [
+          {
+            "question": "프로젝트 진행 기간은 얼마나 걸리나요?",
+            "answer": "프로젝트 규모와 복잡도에 따라 다르지만, 일반적으로 브랜딩 프로젝트는 4-6주, 웹사이트 개발은 8-12주 정도 소요됩니다."
+          },
+          {
+            "question": "프로젝트 비용은 어떻게 산정되나요?",
+            "answer": "프로젝트 범위, 기간, 필요한 전문가 투입 등을 고려하여 맞춤형 견적을 제공합니다. 무료 상담을 통해 정확한 견적을 받아보세요."
+          },
+          {
+            "question": "수정 요청은 몇 번까지 가능한가요?",
+            "answer": "각 단계별로 2-3회의 수정 기회를 제공합니다. 추가 수정이 필요한 경우 협의를 통해 진행합니다."
+          },
+          {
+            "question": "원격으로도 작업이 가능한가요?",
+            "answer": "네, 전국 어디서나 온라인 미팅과 협업 도구를 통해 프로젝트를 진행할 수 있습니다. 필요시 대면 미팅도 가능합니다."
+          },
+          {
+            "question": "어떤 산업 분야의 경험이 있나요?",
+            "answer": "패션, 뷰티, F&B, 테크, 금융, 헬스케어 등 다양한 산업 분야에서 200개 이상의 프로젝트를 성공적으로 완료했습니다."
+          },
+          {
+            "question": "프로젝트 후 유지보수도 제공하나요?",
+            "answer": "네, 프로젝트 완료 후에도 유지보수 및 업데이트 서비스를 제공합니다. 별도의 유지보수 계약을 통해 지속적인 지원이 가능합니다."
+          }
+        ]
+      }
+    },
+    {
+      "type": "contact",
+      "variant": "ContactSplit",
+      "content": {
+        "headline": "프로젝트를 시작할 준비가 되셨나요?",
+        "description": "무료 상담을 통해 프로젝트에 대해 이야기 나눠보세요. 48시간 내에 답변드립니다.",
+        "contactInfo": [
+          {
+            "icon": "Mail",
+            "label": "이메일",
+            "value": "hello@pixelcraft.com",
+            "href": "mailto:hello@pixelcraft.com"
+          },
+          {
+            "icon": "Phone",
+            "label": "전화",
+            "value": "+82-2-1234-5678",
+            "href": "tel:+82-2-1234-5678"
+          },
+          {
+            "icon": "MapPin",
+            "label": "주소",
+            "value": "서울시 강남구 테헤란로 123, 10층",
+            "href": "https://maps.google.com"
+          },
+          {
+            "icon": "Instagram",
+            "label": "Instagram",
+            "value": "@pixelcraft",
+            "href": "https://instagram.com/pixelcraft"
+          }
+        ],
+        "form": {
+          "fields": [
+            {
+              "name": "name",
+              "type": "text",
+              "label": "이름",
+              "required": true
+            },
+            {
+              "name": "company",
+              "type": "text",
+              "label": "회사명",
+              "required": false
+            },
+            {
+              "name": "email",
+              "type": "email",
+              "label": "이메일",
+              "required": true
+            },
+            {
+              "name": "phone",
+              "type": "tel",
+              "label": "연락처",
+              "required": false
+            },
+            {
+              "name": "service",
+              "type": "select",
+              "label": "관심 서비스",
+              "options": [
+                "브랜딩",
+                "UI/UX 디자인",
+                "웹 개발",
+                "종합 패키지",
+                "기타"
+              ],
+              "required": true
+            },
+            {
+              "name": "budget",
+              "type": "select",
+              "label": "예산 범위",
+              "options": [
+                "1천만원 미만",
+                "1천만원 - 3천만원",
+                "3천만원 - 5천만원",
+                "5천만원 이상"
+              ],
+              "required": false
+            },
+            {
+              "name": "message",
+              "type": "textarea",
+              "label": "프로젝트 설명",
+              "required": true
+            }
+          ],
+          "submitText": "상담 신청하기",
+          "submitAction": "/api/contact"
+        }
+      }
+    }
+  ]
+}

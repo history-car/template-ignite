@@ -220,3 +220,114 @@ export interface ContactSplitProps extends BaseSectionProps {
     };
   };
 }
+
+// Pricing Section Types
+export interface PricingTier {
+  name: string;
+  price: string;
+  period?: string;
+  description?: string;
+  features: string[];
+  cta: {
+    text: string;
+    href: string;
+    variant?: "primary" | "secondary" | "outline";
+  };
+  highlighted?: boolean;
+}
+
+export interface PricingThreeColumnProps extends BaseSectionProps {
+  content: {
+    sectionTitle?: string;
+    sectionDescription?: string;
+    tiers: [PricingTier, PricingTier, PricingTier];
+  };
+}
+
+export interface PricingComparisonProps extends BaseSectionProps {
+  content: {
+    sectionTitle?: string;
+    sectionDescription?: string;
+    tiers: PricingTier[];
+    comparisonFeatures?: string[];
+  };
+}
+
+// FAQ Section Types
+export interface FAQItem {
+  question: string;
+  answer: string;
+}
+
+export interface FAQAccordionProps extends BaseSectionProps {
+  content: {
+    sectionTitle?: string;
+    sectionDescription?: string;
+    faqs: FAQItem[];
+  };
+}
+
+export interface FAQTwoColumnProps extends BaseSectionProps {
+  content: {
+    sectionTitle?: string;
+    sectionDescription?: string;
+    faqs: FAQItem[];
+  };
+}
+
+// Team Section Types
+export interface TeamMember {
+  name: string;
+  role: string;
+  bio?: string;
+  image?: {
+    src: string;
+    alt: string;
+  };
+  social?: Array<{
+    platform: string;
+    url: string;
+    icon?: string;
+  }>;
+}
+
+export interface TeamGridProps extends BaseSectionProps {
+  content: {
+    sectionTitle?: string;
+    sectionDescription?: string;
+    members: TeamMember[];
+  };
+}
+
+export interface TeamCardsProps extends BaseSectionProps {
+  content: {
+    sectionTitle?: string;
+    sectionDescription?: string;
+    members: TeamMember[];
+  };
+}
+
+// Stats Section Types
+export interface Stat {
+  value: string;
+  label: string;
+  description?: string;
+  icon?: string;
+}
+
+export interface StatsSimpleProps extends BaseSectionProps {
+  content: {
+    sectionTitle?: string;
+    sectionDescription?: string;
+    stats: Stat[];
+  };
+}
+
+export interface StatsHighlightProps extends BaseSectionProps {
+  content: {
+    sectionTitle?: string;
+    sectionDescription?: string;
+    stats: Stat[];
+    layout?: "grid" | "inline";
+  };
+}

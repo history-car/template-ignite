@@ -47,7 +47,7 @@ const styles = stylex.create({
     gap: spacing.xl,
   },
   quote: {
-    fontSize: typography.fontSize3,
+    fontSize: typography.fontSize4,
     lineHeight: 1.6,
     color: colors.text,
     fontStyle: 'italic',
@@ -69,11 +69,11 @@ const styles = stylex.create({
   },
   authorName: {
     fontWeight: 600,
-    fontSize: typography.fontSize2,
+    fontSize: typography.fontSizeBase,
     color: colors.text,
   },
   authorRole: {
-    fontSize: typography.fontSize1,
+    fontSize: typography.fontSizeSmall,
     color: colors.textMuted,
   },
   rating: {
@@ -83,7 +83,7 @@ const styles = stylex.create({
   },
   star: {
     color: '#fbbf24',
-    fontSize: typography.fontSize3,
+    fontSize: typography.fontSize4,
   },
 });
 

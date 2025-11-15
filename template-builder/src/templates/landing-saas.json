@@ -1,0 +1,252 @@
+{
+  "page": {
+    "title": "혁신적인 SaaS 솔루션 - TeamFlow",
+    "description": "비즈니스 성장을 위한 올인원 협업 플랫폼"
+  },
+  "sections": [
+    {
+      "type": "hero",
+      "variant": "HeroCenteredImage",
+      "content": {
+        "headline": "비즈니스 성장을 가속화하세요",
+        "subheadline": "올인원 SaaS 플랫폼",
+        "description": "팀 협업부터 고객 관리까지, 하나의 플랫폼으로 해결하세요. TeamFlow는 중소기업과 스타트업을 위한 완벽한 비즈니스 솔루션입니다.",
+        "cta": {
+          "primary": {
+            "text": "14일 무료 체험",
+            "href": "#pricing"
+          },
+          "secondary": {
+            "text": "데모 보기",
+            "href": "#demo"
+          }
+        },
+        "image": {
+          "src": "https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&q=80",
+          "alt": "TeamFlow 대시보드"
+        }
+      }
+    },
+    {
+      "type": "stats",
+      "variant": "StatsSimple",
+      "content": {
+        "sectionTitle": "신뢰할 수 있는 성과",
+        "sectionDescription": "전 세계 수천 개 기업이 TeamFlow와 함께 성장하고 있습니다",
+        "stats": [
+          {
+            "value": "10,000+",
+            "label": "활성 사용자",
+            "icon": "Users"
+          },
+          {
+            "value": "99.9%",
+            "label": "서비스 가동률",
+            "icon": "Activity"
+          },
+          {
+            "value": "500+",
+            "label": "기업 고객",
+            "icon": "Building"
+          },
+          {
+            "value": "4.9/5",
+            "label": "고객 만족도",
+            "icon": "Star"
+          }
+        ]
+      }
+    },
+    {
+      "type": "features",
+      "variant": "FeaturesThreeColumn",
+      "content": {
+        "sectionTitle": "강력한 기능으로 생산성 향상",
+        "sectionDescription": "비즈니스에 필요한 모든 도구를 하나의 플랫폼에서",
+        "features": [
+          {
+            "icon": "Zap",
+            "title": "빠른 속도",
+            "description": "최적화된 성능으로 팀의 생산성을 극대화하세요. 실시간 동기화와 즉각적인 반응으로 업무 흐름이 끊기지 않습니다."
+          },
+          {
+            "icon": "Shield",
+            "title": "엔터프라이즈급 보안",
+            "description": "SOC 2 Type II 인증과 256-bit 암호화로 데이터를 안전하게 보호합니다. 팀의 정보는 언제나 안전합니다."
+          },
+          {
+            "icon": "Users",
+            "title": "팀 협업",
+            "description": "실시간 채팅, 화상회의, 파일 공유까지. 팀원들과 원활하게 소통하며 프로젝트를 진행하세요."
+          },
+          {
+            "icon": "BarChart",
+            "title": "데이터 분석",
+            "description": "직관적인 대시보드로 비즈니스 성과를 한눈에 파악하세요. 실시간 리포트로 더 나은 의사결정을 하세요."
+          },
+          {
+            "icon": "Globe",
+            "title": "어디서나 접근",
+            "description": "웹, 모바일, 데스크톱 앱으로 언제 어디서나 업무를 처리할 수 있습니다. 클라우드 기반으로 항상 최신 상태를 유지합니다."
+          },
+          {
+            "icon": "Settings",
+            "title": "쉬운 통합",
+            "description": "Slack, Google Workspace, Microsoft 365 등 100개 이상의 앱과 간편하게 연동하세요."
+          }
+        ]
+      }
+    },
+    {
+      "type": "pricing",
+      "variant": "PricingThreeColumn",
+      "content": {
+        "sectionTitle": "비즈니스 규모에 맞는 합리적인 가격",
+        "sectionDescription": "14일 무료 체험으로 시작하세요. 신용카드 등록 불필요.",
+        "tiers": [
+          {
+            "name": "스타터",
+            "price": "₩29,000",
+            "period": "월",
+            "description": "개인 또는 소규모 팀을 위한 플랜",
+            "features": [
+              "최대 5명 사용자",
+              "10GB 저장공간",
+              "기본 협업 도구",
+              "이메일 지원",
+              "모바일 앱 접근"
+            ],
+            "cta": {
+              "text": "시작하기",
+              "href": "#signup"
+            }
+          },
+          {
+            "name": "프로",
+            "price": "₩99,000",
+            "period": "월",
+            "description": "성장하는 팀을 위한 최고의 선택",
+            "highlighted": true,
+            "features": [
+              "최대 20명 사용자",
+              "100GB 저장공간",
+              "고급 협업 도구",
+              "우선 이메일 지원",
+              "화상회의 (무제한)",
+              "API 액세스",
+              "고급 분석 리포트"
+            ],
+            "cta": {
+              "text": "가장 인기있는 플랜",
+              "href": "#signup"
+            }
+          },
+          {
+            "name": "엔터프라이즈",
+            "price": "문의",
+            "description": "대규모 조직을 위한 맞춤형 솔루션",
+            "features": [
+              "무제한 사용자",
+              "무제한 저장공간",
+              "전담 고객 지원",
+              "SSO 및 SAML 통합",
+              "커스텀 개발 지원",
+              "SLA 보장",
+              "전문 교육 및 온보딩"
+            ],
+            "cta": {
+              "text": "영업팀 문의",
+              "href": "#contact"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "testimonials",
+      "variant": "TestimonialsCarousel",
+      "content": {
+        "sectionTitle": "고객들의 성공 스토리",
+        "sectionDescription": "TeamFlow로 업무 효율성을 높인 기업들의 이야기",
+        "testimonials": [
+          {
+            "quote": "TeamFlow 도입 후 팀의 생산성이 40% 향상되었습니다. 특히 실시간 협업 기능이 원격 근무 환경에서 큰 도움이 되고 있습니다.",
+            "author": "김민준",
+            "role": "CTO",
+            "company": "테크스타트업",
+            "image": {
+              "src": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80",
+              "alt": "김민준"
+            }
+          },
+          {
+            "quote": "다양한 협업 도구를 사용하다가 TeamFlow로 통합했습니다. 이제 하나의 플랫폼에서 모든 것을 관리할 수 있어 매우 편리합니다.",
+            "author": "이서연",
+            "role": "프로젝트 매니저",
+            "company": "디자인에이전시",
+            "image": {
+              "src": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&q=80",
+              "alt": "이서연"
+            }
+          },
+          {
+            "quote": "엔터프라이즈급 보안 기능이 마음에 들었습니다. 고객 데이터를 안전하게 보호하면서 팀 협업도 원활하게 할 수 있습니다.",
+            "author": "박준호",
+            "role": "CEO",
+            "company": "핀테크기업",
+            "image": {
+              "src": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&q=80",
+              "alt": "박준호"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "faq",
+      "variant": "FAQAccordion",
+      "content": {
+        "sectionTitle": "자주 묻는 질문",
+        "sectionDescription": "TeamFlow에 대해 궁금한 점이 있으신가요?",
+        "faqs": [
+          {
+            "question": "무료 체험 기간은 어떻게 되나요?",
+            "answer": "14일 무료 체험을 제공합니다. 신용카드 등록 없이 바로 시작할 수 있으며, 체험 기간 중 언제든지 유료 플랜으로 전환할 수 있습니다."
+          },
+          {
+            "question": "요금제는 언제든지 변경할 수 있나요?",
+            "answer": "네, 언제든지 요금제를 업그레이드하거나 다운그레이드할 수 있습니다. 변경 사항은 다음 결제 주기부터 적용됩니다."
+          },
+          {
+            "question": "데이터는 안전하게 보호되나요?",
+            "answer": "TeamFlow는 SOC 2 Type II 인증을 받았으며, 256-bit 암호화로 모든 데이터를 보호합니다. 또한 정기적인 보안 감사와 백업을 통해 데이터 안전성을 보장합니다."
+          },
+          {
+            "question": "다른 도구들과 연동이 가능한가요?",
+            "answer": "Slack, Google Workspace, Microsoft 365, Salesforce 등 100개 이상의 인기 있는 비즈니스 도구와 연동할 수 있습니다. API를 통한 커스텀 통합도 지원합니다."
+          },
+          {
+            "question": "모바일에서도 사용할 수 있나요?",
+            "answer": "iOS와 Android용 네이티브 앱을 제공합니다. 모바일 앱에서도 데스크톱과 동일한 기능을 사용할 수 있으며, 실시간 동기화를 지원합니다."
+          },
+          {
+            "question": "고객 지원은 어떻게 받을 수 있나요?",
+            "answer": "이메일, 채팅, 전화를 통한 고객 지원을 제공합니다. 프로 플랜 이상에서는 우선 지원을, 엔터프라이즈 플랜에서는 전담 고객 성공 매니저를 배정받습니다."
+          }
+        ]
+      }
+    },
+    {
+      "type": "cta",
+      "variant": "CTASimple",
+      "content": {
+        "headline": "오늘부터 TeamFlow와 함께 시작하세요",
+        "description": "14일 무료 체험으로 TeamFlow의 강력한 기능을 직접 경험해보세요. 신용카드 등록 없이 바로 시작할 수 있습니다.",
+        "cta": {
+          "text": "무료로 시작하기",
+          "href": "#signup"
+        }
+      }
+    }
+  ]
+}

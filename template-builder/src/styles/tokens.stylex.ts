@@ -10,6 +10,8 @@ export const colors = stylex.defineVars({
   textMuted: "#6B7280",
   primaryLight: "#DBEAFE",
   border: "#E5E7EB",
+  white: "#FFFFFF",
+  black: "#000000",
 });
 
 // Typography tokens

@@ -84,11 +84,11 @@ const styles = stylex.create({
   },
   authorName: {
     fontWeight: 600,
-    fontSize: typography.fontSize3,
+    fontSize: typography.fontSize4,
     color: colors.text,
   },
   authorRole: {
-    fontSize: typography.fontSize2,
+    fontSize: typography.fontSizeBase,
     color: colors.textMuted,
   },
   controls: {
@@ -105,7 +105,7 @@ const styles = stylex.create({
     borderColor: colors.border,
     borderRadius: radius.sm,
     cursor: "pointer",
-    fontSize: typography.fontSize3,
+    fontSize: typography.fontSizeBase,
     transition: "all 0.2s",
     ":hover": {
       backgroundColor: colors.backgroundAlt,

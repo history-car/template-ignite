@@ -1,99 +1,105 @@
-'use client';
+"use client";
 
-import { ContactSplitProps } from '@/types/section.types';
-import { Container } from '@/components/shared/container';
-import { Heading } from '@/components/shared/heading';
-import { Button } from '@/components/shared/button';
-import { getIcon } from '@/lib/icon-map';
-import * as stylex from '@stylexjs/stylex';
-import { spacing, colors, radius, typography, breakpoints } from '@/styles/tokens.stylex';
+import { ContactSplitProps } from "@/types/section.types";
+import { Container } from "@/components/shared/container";
+import { Heading } from "@/components/shared/heading";
+import { Button } from "@/components/shared/button";
+import { getIcon } from "@/lib/icon-map";
+import * as stylex from "@stylexjs/stylex";
+import {
+  spacing,
+  colors,
+  radius,
+  typography,
+  breakpoints,
+} from "@/styles/tokens.stylex";
 
 const styles = stylex.create({
   contact: {
-    padding: `${spacing['5xl']} 0`,
+    padding: `${spacing["5xl"]} 0`,
     [`@media (max-width: ${breakpoints.mobile})`]: {
-      padding: `${spacing['4xl']} 0`,
+      padding: `${spacing["4xl"]} 0`,
     },
   },
   grid: {
-    display: 'grid',
-    gridTemplateColumns: '1fr 1fr',
-    gap: spacing['5xl'],
+    display: "grid",
+    gridTemplateColumns: "1fr 1fr",
+    gap: spacing["5xl"],
     [`@media (max-width: ${breakpoints.mobile})`]: {
-      gridTemplateColumns: '1fr',
-      gap: spacing['4xl'],
+      gridTemplateColumns: "1fr",
+      gap: spacing["4xl"],
     },
   },
   infoSection: {
-    display: 'flex',
-    flexDirection: 'column',
-    gap: spacing['2xl'],
+    display: "flex",
+    flexDirection: "column",
+    gap: spacing["2xl"],
   },
   description: {
-    fontSize: typography.fontSize3,
+    fontSize: typography.fontSize4,
     color: colors.textMuted,
     lineHeight: 1.6,
   },
   contactInfoList: {
-    display: 'flex',
-    flexDirection: 'column',
-    gap: spacing['2xl'],
+    display: "flex",
+    flexDirection: "column",
+    gap: spacing["2xl"],
     marginTop: spacing.xl,
   },
   contactInfoItem: {
-    display: 'flex',
-    alignItems: 'flex-start',
+    display: "flex",
+    alignItems: "flex-start",
     gap: spacing.lg,
   },
   iconWrapper: {
-    width: '48px',
-    height: '48px',
+    width: "48px",
+    height: "48px",
     borderRadius: radius.md,
     backgroundColor: colors.backgroundAlt,
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
     flexShrink: 0,
     color: colors.primary,
   },
   contactInfoContent: {
-    display: 'flex',
-    flexDirection: 'column',
+    display: "flex",
+    flexDirection: "column",
     gap: spacing.xs,
   },
   contactInfoLabel: {
-    fontSize: typography.fontSize2,
+    fontSize: typography.fontSizeBase,
     fontWeight: 600,
     color: colors.text,
   },
   contactInfoValue: {
-    fontSize: typography.fontSize2,
+    fontSize: typography.fontSizeBase,
     color: colors.textMuted,
-    textDecoration: 'none',
-    ':hover': {
+    textDecoration: "none",
+    ":hover": {
       color: colors.primary,
     },
   },
   formSection: {
     backgroundColor: colors.backgroundAlt,
-    padding: spacing['3xl'],
+    padding: spacing["3xl"],
     borderRadius: radius.lg,
     [`@media (max-width: ${breakpoints.mobile})`]: {
-      padding: spacing['2xl'],
+      padding: spacing["2xl"],
     },
   },
   form: {
-    display: 'flex',
-    flexDirection: 'column',
+    display: "flex",
+    flexDirection: "column",
     gap: spacing.xl,
   },
   fieldGroup: {
-    display: 'flex',
-    flexDirection: 'column',
+    display: "flex",
+    flexDirection: "column",
     gap: spacing.sm,
   },
   label: {
-    fontSize: typography.fontSize2,
+    fontSize: typography.fontSizeBase,
     fontWeight: 600,
     color: colors.text,
   },
@@ -102,24 +108,24 @@ const styles = stylex.create({
   },
   input: {
     padding: `${spacing.md} ${spacing.lg}`,
-    fontSize: typography.fontSize2,
-    borderWidth: '1px',
-    borderStyle: 'solid',
+    fontSize: typography.fontSizeBase,
+    borderWidth: "1px",
+    borderStyle: "solid",
     borderColor: colors.border,
     borderRadius: radius.sm,
     backgroundColor: colors.background,
     color: colors.text,
-    transition: 'all 0.2s',
-    fontFamily: 'inherit',
-    ':focus': {
-      outline: 'none',
+    transition: "all 0.2s",
+    fontFamily: "inherit",
+    ":focus": {
+      outline: "none",
       borderColor: colors.primary,
       boxShadow: `0 0 0 3px ${colors.primary}33`,
     },
   },
   textarea: {
-    minHeight: '120px',
-    resize: 'vertical',
+    minHeight: "120px",
+    resize: "vertical",
   },
 });
 
@@ -130,7 +136,7 @@ export function ContactSplit({ content, theme }: ContactSplitProps) {
     e.preventDefault();
     const formElement = e.currentTarget;
     const formData = new FormData(formElement);
-    console.log('Form submitted:', Object.fromEntries(formData));
+    console.log("Form submitted:", Object.fromEntries(formData));
   };
 
   return (
@@ -174,7 +180,11 @@ export function ContactSplit({ content, theme }: ContactSplitProps) {
                       <a
                         href={info.href}
                         {...stylex.props(styles.contactInfoItem)}
-                        style={{ textDecoration: 'none', display: 'flex', gap: spacing.lg }}
+                        style={{
+                          textDecoration: "none",
+                          display: "flex",
+                          gap: spacing.lg,
+                        }}
                       >
                         {content}
                       </a>
@@ -202,7 +212,7 @@ export function ContactSplit({ content, theme }: ContactSplitProps) {
                       <span {...stylex.props(styles.required)}> *</span>
                     )}
                   </label>
-                  {field.type === 'textarea' ? (
+                  {field.type === "textarea" ? (
                     <textarea
                       {...stylex.props(styles.input, styles.textarea)}
                       id={field.name}
