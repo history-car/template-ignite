@@ -86,7 +86,17 @@ const nextConfig: NextConfig = {
 };
 
 export default stylexPlugin({
-  rootDir: __dirname,
+  rsOptions: {
+    aliases: {
+      "@/*": [join(__dirname, "src/*")],
+    },
+    unstable_moduleResolution: {
+      type: "commonJS",
+    },
+    runtimeInjection: false,
+    treeshakeCompensation: true,
+  },
+  stylexImports: ["stylex", "@stylexjs/stylex"],
 })(nextConfig);
 ```
 
@@ -210,6 +220,7 @@ export const breakpoints = {
 **파일**: `src/components/shared/button/button.tsx`
 
 ```tsx
+
 import { ButtonHTMLAttributes } from 'react';
 import * as stylex from '@stylexjs/stylex';
 import { colors, spacing, radius, typography } from '@/styles/tokens.stylex';
@@ -380,6 +391,8 @@ export { Heading } from './heading';
 **파일**: `src/components/sections/hero/hero-centered-image/hero-centered-image.tsx`
 
 ```tsx
+'use client';
+
 import { HeroCenteredImageProps } from '@/types/section.types';
 import { Container } from '@/components/shared/container';
 import { Heading } from '@/components/shared/heading';
@@ -503,10 +516,11 @@ export function HeroCenteredImage({ content, theme }: HeroCenteredImageProps) {
 **파일**: `src/components/sections/features/features-three-column/features-three-column.tsx`
 
 ```tsx
+
 import { FeaturesThreeColumnProps } from '@/types/section.types';
 import { Container } from '@/components/shared/container';
 import { Heading } from '@/components/shared/heading';
-import * as Icons from 'lucide-react';
+import { getIcon } from '@/lib/icon-map';
 import * as stylex from '@stylexjs/stylex';
 
 const styles = stylex.create({
@@ -584,9 +598,7 @@ export function FeaturesThreeColumn({
         )}
         <div {...stylex.props(styles.grid)}>
           {features.map((feature, index) => {
-            const IconComponent = feature.icon
-              ? (Icons as any)[feature.icon]
-              : null;
+            const IconComponent = feature.icon ? getIcon(feature.icon) : null;
 
             return (
               <div key={index} {...stylex.props(styles.feature)}>
@@ -614,6 +626,7 @@ export function FeaturesThreeColumn({
 **파일**: `src/components/sections/contact/contact-form/contact-form.tsx`
 
 ```tsx
+
 import { ContactFormProps } from '@/types/section.types';
 import { Container } from '@/components/shared/container';
 import { Heading } from '@/components/shared/heading';
@@ -758,7 +771,32 @@ export function ContactForm({ content, theme }: ContactFormProps) {
 
 ### Phase 5: 페이지 빌더 시스템 (3시간)
 
-#### 5.1 섹션 레지스트리
+#### 5.1 아이콘 매핑 시스템
+
+**파일**: `src/lib/icon-map.ts`
+
+```typescript
+import { LucideIcon, Scale, Clock, Shield, CheckCircle, Users, Zap } from 'lucide-react';
+
+export const iconMap: Record<string, LucideIcon> = {
+  Scale,
+  Clock,
+  Shield,
+  CheckCircle,
+  Users,
+  Zap,
+};
+
+export type IconName = keyof typeof iconMap;
+
+export function getIcon(name: string): LucideIcon | null {
+  return iconMap[name] || null;
+}
+```
+
+**중요**: 타입 안전한 아이콘 로딩을 위해 명시적인 icon map을 사용합니다. 새로운 아이콘 추가 시 이 파일에 import하고 iconMap에 추가하세요.
+
+#### 5.2 섹션 레지스트리 (선택사항)
 
 **파일**: `src/components/registry/section-registry.ts`
 
@@ -788,6 +826,8 @@ export function getVariantComponent(variant: string): ComponentType<any> {
   return component;
 }
 ```
+
+**참고**: 프로토타입에서는 page.tsx에서 직접 switch 문을 사용하므로 이 레지스트리는 선택사항입니다. MVP 단계에서 더 많은 섹션이 추가될 때 유용합니다.
 
 #### 5.2 페이지 빌더
 
@@ -1043,13 +1083,14 @@ export default function RootLayout({
 **파일**: `src/app/page.tsx`
 
 ```tsx
-import { buildPage } from '@/lib/page-builder';
-import landingTemplate from '@/templates/landing-law-firm.json';
-import { PageConfig } from '@/types/page.types';
+import { HeroCenteredImage } from "@/components/sections/hero/hero-centered-image";
+import { FeaturesThreeColumn } from "@/components/sections/features/features-three-column";
+import { ContactForm } from "@/components/sections/contact/contact-form";
+import landingTemplate from "@/templates/landing-law-firm.json";
+import { PageConfig } from "@/types/page.types";
 
 export default function Home() {
   const config = landingTemplate as PageConfig;
-  const { sections } = buildPage(config);
 
   return (
     <main>
@@ -1113,31 +1154,216 @@ npm run dev
 
 ---
 
+
 ## 트러블슈팅
 
-### 자주 발생하는 문제
+### 실제 발생한 문제 및 해결 방법
 
-**1. TypeScript 타입 에러**
+#### 1. StyleX border shorthand 에러
+
+**에러 메시지**:
+```
+Panic occurred during transformation: border is not supported. 
+Use border-width, border-style and border-color instead
+```
+
+**원인**: StyleX는 CSS shorthand 속성을 지원하지 않습니다.
+
+**해결 방법**:
+```typescript
+// ❌ 잘못된 방법
+const styles = stylex.create({
+  button: {
+    border: '2px solid blue',
+  },
+});
+
+// ✅ 올바른 방법
+const styles = stylex.create({
+  button: {
+    borderWidth: '2px',
+    borderStyle: 'solid',
+    borderColor: 'blue',
+  },
+});
+```
+
+**적용 파일**:
+- `src/components/shared/button/button.tsx`
+- `src/components/sections/contact/contact-form/contact-form.tsx`
+
+---
+
+#### 2. Server/Client Component 경계 문제
+
+**에러 메시지**:
+```
+Error: Functions cannot be passed directly to Client Components 
+unless you explicitly expose it by marking it with "use server"
+```
+
+**원인**: 
+- Server Component에서 동적으로 생성한 React 컴포넌트를 Client Component에 전달할 수 없음
+- `buildPage()`가 반환한 Component 레퍼런스를 직렬화할 수 없음
+
+**잘못된 구조**:
+```typescript
+// ❌ 작동하지 않음
+// src/app/page.tsx (Server Component)
+export default function Home() {
+  const { sections } = buildPage(config);
+  return (
+    <main>
+      {sections.map(({ Component, props }) => (
+        <Component {...props} /> // Client Component에 함수 전달 불가
+      ))}
+    </main>
+  );
+}
+```
+
+**해결 방법 (옵션 2 - 권장)**:
+```typescript
+// ✅ variant 기반 조건부 렌더링
+// src/app/page.tsx
+import { HeroCenteredImage } from "@/components/sections/hero/hero-centered-image";
+import { FeaturesThreeColumn } from "@/components/sections/features/features-three-column";
+import { ContactForm } from "@/components/sections/contact/contact-form";
+import landingTemplate from "@/templates/landing-law-firm.json";
+import { PageConfig } from "@/types/page.types";
+
+export default function Home() {
+  const config = landingTemplate as PageConfig;
+
+  return (
+    <main>
+      {config.sections.map((section, index) => {
+        const key = `section-${index}`;
+        
+        switch (section.variant) {
+          case "HeroCenteredImage":
+            return <HeroCenteredImage key={key} content={section.content} theme={section.theme} />;
+          case "FeaturesThreeColumn":
+            return <FeaturesThreeColumn key={key} content={section.content} theme={section.theme} />;
+          case "ContactForm":
+            return <ContactForm key={key} content={section.content} theme={section.theme} />;
+          default:
+            return null;
+        }
+      })}
+    </main>
+  );
+}
+```
+
+**장점**:
+- Server Component 유지 → SEO 최적화
+- 정적 생성 가능
+- 타입 안전성 보장
+
+---
+
+#### 3. 동적 아이콘 로딩 타입 안전성 문제
+
+**문제**: 
+- `lucide-react`에서 아이콘을 동적으로 불러올 때 타입 안전성 부족
+- `(Icons as any)[iconName]` 같은 unsafe 패턴 사용
+
+**해결 방법**: 타입 안전한 icon map 생성
+
+```typescript
+// src/lib/icon-map.ts
+import { LucideIcon, Scale, Clock, Shield, CheckCircle, Users, Zap } from 'lucide-react';
+
+export const iconMap: Record<string, LucideIcon> = {
+  Scale,
+  Clock,
+  Shield,
+  CheckCircle,
+  Users,
+  Zap,
+};
+
+export type IconName = keyof typeof iconMap;
+
+export function getIcon(name: string): LucideIcon | null {
+  return iconMap[name] || null;
+}
+```
+
+**사용 방법**:
+```typescript
+// src/components/sections/features/features-three-column/features-three-column.tsx
+import { getIcon } from "@/lib/icon-map";
+
+export function FeaturesThreeColumn({ content }: FeaturesThreeColumnProps) {
+  return (
+    <div>
+      {features.map((feature, index) => {
+        const IconComponent = feature.icon ? getIcon(feature.icon) : null;
+        
+        return (
+          <div key={index}>
+            {IconComponent && <IconComponent size={32} />}
+            <h3>{feature.title}</h3>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+```
+
+**장점**:
+- 타입 안전성 보장
+- 존재하지 않는 아이콘 이름 처리
+- 명시적인 아이콘 목록 관리
+
+---
+
+#### 4. Next.js 16 Turbopack과 webpack 충돌
+
+**에러 메시지**:
+```
+ERROR: This build is using Turbopack, with a `webpack` config and no `turbopack` config.
+```
+
+**원인**: StyleX 플러그인이 webpack 설정을 추가했지만 Next.js 16은 Turbopack을 기본으로 사용
+
+**해결 방법**: `--webpack` 플래그 명시 또는 빈 turbopack 설정 추가
+
+```typescript
+// next.config.ts
+const nextConfig: NextConfig = {
+  turbopack: {}, // 빈 설정 추가
+};
+```
+
+또는 빌드 시:
+```bash
+npm run build -- --webpack
+```
+
+---
+
+### 기타 자주 발생하는 문제
+
+**5. TypeScript 타입 에러**
 ```bash
 # 타입 정의 확인
 # TYPE_DEFINITIONS.md의 타입을 정확히 복사했는지 확인
 ```
 
-**2. CSS 변수가 작동하지 않음**
+**6. CSS 변수가 작동하지 않음**
 ```bash
 # globals.css가 layout.tsx에서 import되었는지 확인
 ```
 
-**3. 이미지가 표시되지 않음**
+**7. 이미지가 표시되지 않음**
 ```bash
 # public/images/ 폴더에 이미지 있는지 확인
-# next.config.js에서 이미지 도메인 설정 필요 시 추가
-```
-
-**4. lucide-react 아이콘 에러**
-```bash
-# 아이콘 이름이 정확한지 확인 (PascalCase)
-# import * as Icons from 'lucide-react' 확인
+# Unsplash URL 사용 시 next.config.ts에 도메인 추가:
+# images: { domains: ['images.unsplash.com'] }
 ```
 
 ---
