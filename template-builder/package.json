@@ -9,6 +9,7 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@radix-ui/react-slot": "^1.2.4",
     "@stylexjs/stylex": "^0.16.3",
     "@stylexswc/nextjs-plugin": "^0.13.0",
     "lucide-react": "^0.553.0",
@@ -18,12 +19,12 @@
     "yaml": "^2.8.1"
   },
   "devDependencies": {
+    "@stylexswc/rs-compiler": "^0.13.0",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.0.3",
-    "@stylexswc/rs-compiler": "^0.13.0",
     "typescript": "^5"
   }
 }

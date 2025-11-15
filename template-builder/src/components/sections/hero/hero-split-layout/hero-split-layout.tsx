@@ -1,6 +1,6 @@
 "use client";
 
-import { HeroCenteredImageProps } from "@/types/section.types";
+import { HeroSplitLayoutProps } from "@/types/section.types";
 import { Container } from "@/components/shared/container";
 import { Heading } from "@/components/shared/heading";
 import { Button } from "@/components/shared/button";
@@ -9,7 +9,6 @@ import * as stylex from "@stylexjs/stylex";
 import {
   spacing,
   colors,
-  radius,
   typography,
   breakpoints,
 } from "@/styles/tokens.stylex";
@@ -31,15 +30,25 @@ const styles = stylex.create({
       gap: spacing["3xl"],
     },
   },
+  gridReverse: {
+    [`@media (min-width: ${breakpoints.mobile})`]: {
+      direction: "rtl",
+    },
+  },
   content: {
     display: "flex",
     flexDirection: "column",
     gap: spacing["2xl"],
+    [`@media (min-width: ${breakpoints.mobile})`]: {
+      direction: "ltr",
+    },
   },
   subheadline: {
     color: colors.primary,
     fontWeight: 600,
     fontSize: typography.fontSize4,
+    textTransform: "uppercase",
+    letterSpacing: "0.05em",
   },
   headline: {
     margin: 0,
@@ -59,17 +68,31 @@ const styles = stylex.create({
   },
   imageWrapper: {
     position: "relative",
+    width: "100%",
+    aspectRatio: "4 / 3",
+    [`@media (min-width: ${breakpoints.mobile})`]: {
+      direction: "ltr",
+    },
   },
   image: {
     width: "100%",
-    height: "auto",
-    borderRadius: radius.md,
+    height: "100%",
+    objectFit: "cover",
+    borderRadius: spacing.md,
   },
 });
 
-export function HeroCenteredImage({ content, theme }: HeroCenteredImageProps) {
-  const { headline, subheadline, description, cta, secondaryCta, image } =
-    content;
+export function HeroSplitLayout({ content, theme }: HeroSplitLayoutProps) {
+  const {
+    headline,
+    subheadline,
+    description,
+    cta,
+    secondaryCta,
+    image,
+    imagePosition = "right",
+  } = content;
+  const isImageLeft = imagePosition === "left";
 
   return (
     <section
@@ -80,7 +103,7 @@ export function HeroCenteredImage({ content, theme }: HeroCenteredImageProps) {
       }}
     >
       <Container>
-        <div {...stylex.props(styles.grid)}>
+        <div {...stylex.props(styles.grid, isImageLeft && styles.gridReverse)}>
           <div {...stylex.props(styles.content)}>
             {subheadline && (
               <p {...stylex.props(styles.subheadline)}>{subheadline}</p>
@@ -107,7 +130,7 @@ export function HeroCenteredImage({ content, theme }: HeroCenteredImageProps) {
               src={image.src}
               alt={image.alt}
               width={image.width || 600}
-              height={image.height || 400}
+              height={image.height || 450}
               {...stylex.props(styles.image)}
               priority
             />

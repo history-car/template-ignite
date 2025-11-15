@@ -5,71 +5,77 @@ import { Container } from "@/components/shared/container";
 import { Heading } from "@/components/shared/heading";
 import { Button } from "@/components/shared/button";
 import * as stylex from "@stylexjs/stylex";
-import { spacing, colors, radius, typography } from "@/styles/tokens.stylex";
+import {
+  spacing,
+  colors,
+  radius,
+  typography,
+  breakpoints,
+} from "@/styles/tokens.stylex";
 
 const styles = stylex.create({
   contact: {
     padding: `${spacing["5xl"]} 0`,
-  },
-  wrapper: {
-    maxWidth: "600px",
-    margin: "0 auto",
+    [`@media (max-width: ${breakpoints.mobile})`]: {
+      padding: `${spacing["4xl"]} 0`,
+    },
   },
   header: {
     textAlign: "center",
-    marginBottom: spacing["3xl"],
+    maxWidth: "800px",
+    margin: "0 auto",
+    marginBottom: spacing["4xl"],
   },
   description: {
     fontSize: typography.fontSize4,
     color: colors.textMuted,
     marginTop: spacing.lg,
   },
+  formWrapper: {
+    maxWidth: "600px",
+    margin: "0 auto",
+  },
   form: {
     display: "flex",
     flexDirection: "column",
     gap: spacing["2xl"],
   },
-  field: {
+  fieldGroup: {
     display: "flex",
     flexDirection: "column",
     gap: spacing.sm,
   },
   label: {
+    fontSize: typography.fontSizeBase,
     fontWeight: 600,
-    fontSize: typography.fontSizeSmall,
+    color: colors.text,
   },
   required: {
-    color: "#ef4444",
-    marginLeft: spacing.xs,
+    color: colors.primary,
   },
   input: {
-    padding: spacing.md,
+    padding: `${spacing.md} ${spacing.lg}`,
+    fontSize: typography.fontSizeBase,
     borderWidth: "1px",
     borderStyle: "solid",
-    borderColor: "#d1d5db",
+    borderColor: colors.border,
     borderRadius: radius.sm,
-    fontSize: typography.fontSizeBase,
+    backgroundColor: colors.background,
+    color: colors.text,
+    transition: "all 0.2s",
     fontFamily: "inherit",
     ":focus": {
       outline: "none",
       borderColor: colors.primary,
-      boxShadow: "0 0 0 3px rgba(59, 130, 246, 0.1)",
+      boxShadow: `0 0 0 3px ${colors.primary}33`,
     },
   },
   textarea: {
-    padding: spacing.md,
-    borderWidth: "1px",
-    borderStyle: "solid",
-    borderColor: "#d1d5db",
-    borderRadius: radius.sm,
-    fontSize: typography.fontSizeBase,
-    fontFamily: "inherit",
+    minHeight: "150px",
     resize: "vertical",
-    ":focus": {
-      outline: "none",
-      borderColor: colors.primary,
-      boxShadow: "0 0 0 3px rgba(59, 130, 246, 0.1)",
-    },
+  },
+  submitButton: {
+    marginTop: spacing.lg,
   },
 });
 
@@ -78,10 +84,10 @@ export function ContactForm({ content, theme }: ContactFormProps) {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // 프로토타입: 콘솔 로그만
-    const formData = new FormData(e.currentTarget);
+    // Form submission will be handled by the form action
+    const form = e.currentTarget;
+    const formData = new FormData(form);
     console.log("Form submitted:", Object.fromEntries(formData));
-    alert("폼이 제출되었습니다 (프로토타입 모드)");
   };
 
   return (
@@ -93,46 +99,54 @@ export function ContactForm({ content, theme }: ContactFormProps) {
       }}
     >
       <Container>
-        <div {...stylex.props(styles.wrapper)}>
-          <div {...stylex.props(styles.header)}>
-            <Heading as="h2">{headline}</Heading>
-            {description && (
-              <p {...stylex.props(styles.description)}>{description}</p>
-            )}
-          </div>
-          <form {...stylex.props(styles.form)} onSubmit={handleSubmit}>
+        <div {...stylex.props(styles.header)}>
+          <Heading as="h2">{headline}</Heading>
+          {description && (
+            <p {...stylex.props(styles.description)}>{description}</p>
+          )}
+        </div>
+
+        <div {...stylex.props(styles.formWrapper)}>
+          <form
+            {...stylex.props(styles.form)}
+            onSubmit={handleSubmit}
+            action={submitAction}
+            method="POST"
+          >
             {fields.map((field, index) => (
-              <div key={index} {...stylex.props(styles.field)}>
-                <label htmlFor={field.name} {...stylex.props(styles.label)}>
+              <div key={index} {...stylex.props(styles.fieldGroup)}>
+                <label {...stylex.props(styles.label)} htmlFor={field.name}>
                   {field.label}
                   {field.required && (
-                    <span {...stylex.props(styles.required)}>*</span>
+                    <span {...stylex.props(styles.required)}> *</span>
                   )}
                 </label>
                 {field.type === "textarea" ? (
                   <textarea
+                    {...stylex.props(styles.input, styles.textarea)}
                     id={field.name}
                     name={field.name}
                     placeholder={field.placeholder}
                     required={field.required}
-                    {...stylex.props(styles.textarea)}
-                    rows={4}
                   />
                 ) : (
                   <input
+                    {...stylex.props(styles.input)}
+                    type={field.type}
                     id={field.name}
                     name={field.name}
-                    type={field.type}
                     placeholder={field.placeholder}
                     required={field.required}
-                    {...stylex.props(styles.input)}
                   />
                 )}
               </div>
             ))}
-            <Button type="submit" variant="primary" size="large">
-              {submitText}
-            </Button>
+
+            <div {...stylex.props(styles.submitButton)}>
+              <Button type="submit" variant="primary" size="large">
+                {submitText}
+              </Button>
+            </div>
           </form>
         </div>
       </Container>

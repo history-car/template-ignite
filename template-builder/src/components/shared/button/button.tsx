@@ -1,4 +1,7 @@
+"use client";
+
 import { ButtonHTMLAttributes } from "react";
+import { Slot } from "@radix-ui/react-slot";
 import * as stylex from "@stylexjs/stylex";
 import { colors, spacing, radius, typography } from "@/styles/tokens.stylex";
 
@@ -12,6 +15,8 @@ const styles = stylex.create({
     borderWidth: 0,
     borderStyle: "none",
     fontSize: typography.fontSizeBase,
+    display: "inline-block",
+    textDecoration: "none",
   },
   primary: {
     backgroundColor: colors.primary,
@@ -38,19 +43,22 @@ const styles = stylex.create({
 });
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  children: React.ReactNode;
+  asChild?: boolean;
   variant?: "primary" | "secondary" | "outline";
   size?: "default" | "large";
 }
 
 export function Button({
-  children,
+  asChild = false,
   variant = "primary",
   size = "default",
+  children,
   ...props
 }: ButtonProps) {
+  const Comp = asChild ? Slot : "button";
+
   return (
-    <button
+    <Comp
       {...stylex.props(
         styles.button,
         variant && styles[variant],
@@ -59,6 +67,6 @@ export function Button({
       {...props}
     >
       {children}
-    </button>
+    </Comp>
   );
 }
