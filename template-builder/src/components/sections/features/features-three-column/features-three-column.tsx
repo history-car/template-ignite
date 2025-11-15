@@ -95,7 +95,7 @@ export function FeaturesThreeColumn({
 
             return (
               <div key={index} {...stylex.props(styles.feature)}>
-                {/*{IconComponent && (
+                {IconComponent && (
                   <div {...stylex.props(styles.iconWrapper)}>
                     <IconComponent {...stylex.props(styles.icon)} size={32} />
                   </div>
