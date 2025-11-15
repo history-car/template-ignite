@@ -128,7 +128,78 @@ mkdir -p public/images
 
 ---
 
-### Phase 3: 공통 컴포넌트 (2시간)
+### Phase 3: 디자인 토큰 및 공통 컴포넌트 (2.5시간)
+
+#### 3.0 디자인 토큰 정의 (StyleX)
+
+**파일**: `src/styles/tokens.stylex.ts`
+
+```typescript
+import * as stylex from '@stylexjs/stylex';
+
+// Color tokens
+export const colors = stylex.defineVars({
+  primary: '#1E40AF',
+  secondary: '#64748B',
+  background: '#FFFFFF',
+  backgroundAlt: '#F9FAFB',
+  text: '#1F2937',
+  textMuted: '#6B7280',
+  primaryLight: '#DBEAFE',
+});
+
+// Typography tokens
+export const typography = stylex.defineVars({
+  fontHeading: '"Noto Serif KR", serif',
+  fontBody: '"Pretendard", -apple-system, BlinkMacSystemFont, sans-serif',
+  
+  fontSize1: '3rem',      // h1
+  fontSize2: '2.25rem',   // h2
+  fontSize3: '1.875rem',  // h3
+  fontSize4: '1.125rem',  // large text
+  fontSizeBase: '1rem',
+  fontSizeSmall: '0.875rem',
+  
+  fontSize1Mobile: '2rem',
+  fontSize2Mobile: '1.5rem',
+  fontSize3Mobile: '1.25rem',
+  
+  lineHeightHeading: '1.2',
+  lineHeightBody: '1.6',
+});
+
+// Spacing tokens
+export const spacing = stylex.defineVars({
+  xs: '0.25rem',
+  sm: '0.5rem',
+  md: '0.75rem',
+  lg: '1rem',
+  xl: '1.5rem',
+  '2xl': '2rem',
+  '3xl': '2.5rem',
+  '4xl': '3rem',
+  '5xl': '5rem',
+});
+
+// Border radius tokens
+export const radius = stylex.defineVars({
+  sm: '0.375rem',
+  md: '0.5rem',
+  lg: '0.75rem',
+  full: '9999px',
+});
+
+// Breakpoints
+export const breakpoints = {
+  mobile: '768px',
+  tablet: '1024px',
+  desktop: '1280px',
+} as const;
+```
+
+**중요**: 모든 컴포넌트는 하드코딩된 값 대신 디자인 토큰을 사용합니다.
+
+---
 
 프로토타입에 필요한 최소 공통 컴포넌트만 구현
 
@@ -139,36 +210,37 @@ mkdir -p public/images
 ```tsx
 import { ButtonHTMLAttributes } from 'react';
 import * as stylex from '@stylexjs/stylex';
+import { colors, spacing, radius, typography } from '@/styles/tokens.stylex';
 
 const styles = stylex.create({
   button: {
-    padding: '0.75rem 1.5rem',
-    borderRadius: '0.375rem',
+    padding: `${spacing.md} ${spacing.xl}`,
+    borderRadius: radius.sm,
     fontWeight: 600,
     cursor: 'pointer',
     transition: 'all 0.2s',
     border: 'none',
-    fontSize: '1rem',
+    fontSize: typography.fontSizeBase,
   },
   primary: {
-    backgroundColor: 'var(--color-primary)',
+    backgroundColor: colors.primary,
     color: 'white',
     ':hover': {
       opacity: 0.9,
     },
   },
   secondary: {
-    backgroundColor: 'var(--color-secondary)',
+    backgroundColor: colors.secondary,
     color: 'white',
   },
   outline: {
     backgroundColor: 'transparent',
-    border: '2px solid var(--color-primary)',
-    color: 'var(--color-primary)',
+    border: `2px solid ${colors.primary}`,
+    color: colors.primary,
   },
   large: {
-    padding: '1rem 2rem',
-    fontSize: '1.125rem',
+    padding: `${spacing.lg} ${spacing['2xl']}`,
+    fontSize: typography.fontSize4,
   },
 });
 
@@ -211,14 +283,15 @@ export { Button } from './button';
 
 ```tsx
 import * as stylex from '@stylexjs/stylex';
+import { spacing, breakpoints } from '@/styles/tokens.stylex';
 
 const styles = stylex.create({
   container: {
     maxWidth: '1200px',
     margin: '0 auto',
-    padding: '0 1.5rem',
-    '@media (max-width: 768px)': {
-      padding: '0 1rem',
+    padding: `0 ${spacing.xl}`,
+    [`@media (max-width: ${breakpoints.mobile})`]: {
+      padding: `0 ${spacing.lg}`,
     },
   },
 });
@@ -239,29 +312,30 @@ export function Container({ children }: ContainerProps) {
 ```tsx
 import { createElement, HTMLAttributes } from 'react';
 import * as stylex from '@stylexjs/stylex';
+import { typography, colors, breakpoints } from '@/styles/tokens.stylex';
 
 const styles = stylex.create({
   heading: {
     fontWeight: 700,
-    lineHeight: 1.2,
-    color: 'var(--color-text)',
+    lineHeight: typography.lineHeightHeading,
+    color: colors.text,
   },
   h1: {
-    fontSize: '3rem',
-    '@media (max-width: 768px)': {
-      fontSize: '2rem',
+    fontSize: typography.fontSize1,
+    [`@media (max-width: ${breakpoints.mobile})`]: {
+      fontSize: typography.fontSize1Mobile,
     },
   },
   h2: {
-    fontSize: '2.25rem',
-    '@media (max-width: 768px)': {
-      fontSize: '1.5rem',
+    fontSize: typography.fontSize2,
+    [`@media (max-width: ${breakpoints.mobile})`]: {
+      fontSize: typography.fontSize2Mobile,
     },
   },
   h3: {
-    fontSize: '1.875rem',
-    '@media (max-width: 768px)': {
-      fontSize: '1.25rem',
+    fontSize: typography.fontSize3,
+    [`@media (max-width: ${breakpoints.mobile})`]: {
+      fontSize: typography.fontSize3Mobile,
     },
   },
 });
@@ -272,9 +346,11 @@ interface HeadingProps extends HTMLAttributes<HTMLHeadingElement> {
 }
 
 export function Heading({ as = 'h2', children, ...props }: HeadingProps) {
+  const headingStyle = as in styles ? styles[as as keyof typeof styles] : null;
+  
   return createElement(
     as,
-    { ...stylex.props(styles.heading, styles[as]), ...props },
+    { ...stylex.props(styles.heading, headingStyle), ...props },
     children
   );
 }
