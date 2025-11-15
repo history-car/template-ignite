@@ -69,7 +69,11 @@ npm install yaml lucide-react @stylexjs/stylex
 npm install -D @types/node @stylexswc/nextjs-plugin
 ```
 
-**중요**: `@stylexjs/nextjs-plugin`과 `@stylexjs/babel-plugin`은 deprecated되었습니다. 대신 `@stylexswc/nextjs-plugin`을 사용하세요.
+**중요**: 
+- `@stylexjs/nextjs-plugin`과 `@stylexjs/babel-plugin`은 deprecated되었습니다. 대신 `@stylexswc/nextjs-plugin`을 사용하세요.
+- **StyleX 제약사항**: 
+  - `border` shorthand 사용 불가 → `borderWidth`, `borderStyle`, `borderColor` 개별 속성 사용
+  - `background` shorthand 사용 불가 → `backgroundColor`, `backgroundImage` 등 개별 속성 사용
 
 #### 1.2.1 Next.js 설정 (next.config.ts)
 
@@ -82,9 +86,7 @@ const nextConfig: NextConfig = {
 };
 
 export default stylexPlugin({
-  rsOptions: {
-    dev: process.env.NODE_ENV !== "production",
-  },
+  rootDir: __dirname,
 })(nextConfig);
 ```
 
@@ -219,7 +221,8 @@ const styles = stylex.create({
     fontWeight: 600,
     cursor: 'pointer',
     transition: 'all 0.2s',
-    border: 'none',
+    borderWidth: 0,
+    borderStyle: 'none',
     fontSize: typography.fontSizeBase,
   },
   primary: {
@@ -235,7 +238,9 @@ const styles = stylex.create({
   },
   outline: {
     backgroundColor: 'transparent',
-    border: `2px solid ${colors.primary}`,
+    borderWidth: '2px',
+    borderStyle: 'solid',
+    borderColor: colors.primary,
     color: colors.primary,
   },
   large: {
@@ -652,7 +657,9 @@ const styles = stylex.create({
   },
   input: {
     padding: '0.75rem',
-    border: '1px solid #d1d5db',
+    borderWidth: '1px',
+    borderStyle: 'solid',
+    borderColor: '#d1d5db',
     borderRadius: '0.375rem',
     fontSize: '1rem',
     fontFamily: 'inherit',
@@ -664,7 +671,9 @@ const styles = stylex.create({
   },
   textarea: {
     padding: '0.75rem',
-    border: '1px solid #d1d5db',
+    borderWidth: '1px',
+    borderStyle: 'solid',
+    borderColor: '#d1d5db',
     borderRadius: '0.375rem',
     fontSize: '1rem',
     fontFamily: 'inherit',

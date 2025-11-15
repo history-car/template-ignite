@@ -1,3 +1,5 @@
+"use client";
+
 import { ButtonHTMLAttributes } from "react";
 import * as stylex from "@stylexjs/stylex";
 import { colors, spacing, radius, typography } from "@/styles/tokens.stylex";
@@ -9,7 +11,8 @@ const styles = stylex.create({
     fontWeight: 600,
     cursor: "pointer",
     transition: "all 0.2s",
-    border: "none",
+    borderWidth: 0,
+    borderStyle: "none",
     fontSize: typography.fontSizeBase,
   },
   primary: {
@@ -25,7 +28,9 @@ const styles = stylex.create({
   },
   outline: {
     backgroundColor: "transparent",
-    border: `2px solid ${colors.primary}`,
+    borderWidth: "2px",
+    borderStyle: "solid",
+    borderColor: colors.primary,
     color: colors.primary,
   },
   large: {
