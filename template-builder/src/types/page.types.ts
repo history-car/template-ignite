@@ -1,19 +1,37 @@
-import { ThemeOverride } from './section.types';
+import { SectionType, SectionPropsMap } from "@/lib/section-registry";
 
-export interface SectionConfig<TContent = unknown> {
-  type: string;
-  variant: string;
-  content: TContent;
-  theme?: ThemeOverride;
+// Dynamic section definition
+export interface SectionConfig<T extends SectionType = SectionType> {
+  id: string;
+  type: T;
+  props: SectionPropsMap[T];
 }
 
+// Page configuration
 export interface PageConfig {
-  page: {
-    title: string;
-    description?: string;
-  };
+  id: string;
+  title: string;
+  description?: string;
+  path: string;
   sections: SectionConfig[];
-  theme: {
-    preset: string;
+  metadata?: {
+    ogTitle?: string;
+    ogDescription?: string;
+    ogImage?: string;
+    keywords?: string[];
+  };
+}
+
+// Site configuration
+export interface SiteConfig {
+  name: string;
+  description: string;
+  url: string;
+  pages: PageConfig[];
+  globalTheme?: {
+    primaryColor?: string;
+    secondaryColor?: string;
+    fontHeading?: string;
+    fontBody?: string;
   };
 }

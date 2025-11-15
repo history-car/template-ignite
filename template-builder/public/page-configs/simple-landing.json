@@ -1,0 +1,81 @@
+{
+  "id": "simple-landing",
+  "title": "Simple Landing Page",
+  "description": "A minimal landing page configuration example",
+  "path": "/simple",
+  "metadata": {
+    "ogTitle": "Simple Landing Page",
+    "ogDescription": "Get started with our platform today",
+    "keywords": ["landing", "simple", "example"]
+  },
+  "sections": [
+    {
+      "id": "hero-simple",
+      "type": "hero-centered-image",
+      "props": {
+        "content": {
+          "headline": "Welcome to Our Platform",
+          "subheadline": "Start Building Today",
+          "description": "Everything you need to bring your ideas to life.",
+          "cta": {
+            "text": "Get Started",
+            "href": "#signup",
+            "variant": "primary"
+          },
+          "secondaryCta": {
+            "text": "Learn More",
+            "href": "#features"
+          },
+          "image": {
+            "src": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&h=600&fit=crop",
+            "alt": "Platform illustration",
+            "width": 800,
+            "height": 600
+          }
+        }
+      }
+    },
+    {
+      "id": "features-simple",
+      "type": "features-three-column",
+      "props": {
+        "content": {
+          "sectionTitle": "Core Features",
+          "sectionDescription": "Everything you need in one platform",
+          "features": [
+            {
+              "icon": "Zap",
+              "title": "Fast & Efficient",
+              "description": "Optimized for maximum performance and productivity."
+            },
+            {
+              "icon": "Lock",
+              "title": "Secure",
+              "description": "Your data is protected with enterprise-grade security."
+            },
+            {
+              "icon": "Heart",
+              "title": "Easy to Use",
+              "description": "Intuitive interface that anyone can master quickly."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "cta-simple",
+      "type": "cta-simple",
+      "props": {
+        "content": {
+          "headline": "Ready to Start?",
+          "description": "Join thousands of happy users today.",
+          "cta": {
+            "text": "Sign Up Now",
+            "href": "#signup",
+            "variant": "primary"
+          }
+        }
+      }
+    }
+  ]
+}
