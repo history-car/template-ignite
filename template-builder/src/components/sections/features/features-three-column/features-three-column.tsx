@@ -1,9 +1,7 @@
-"use client";
-
 import { FeaturesThreeColumnProps } from "@/types/section.types";
 import { Container } from "@/components/shared/container";
 import { Heading } from "@/components/shared/heading";
-import * as Icons from "lucide-react";
+import { getIcon } from "@/lib/icon-map";
 import * as stylex from "@stylexjs/stylex";
 import {
   spacing,
@@ -72,10 +70,10 @@ export function FeaturesThreeColumn({
   return (
     <section
       {...stylex.props(styles.features)}
-      // style={{
-      //   backgroundColor: theme?.backgroundColor,
-      //   color: theme?.textColor,
-      // }}
+      style={{
+        backgroundColor: theme?.backgroundColor,
+        color: theme?.textColor,
+      }}
     >
       <Container>
         {sectionTitle && (
@@ -88,10 +86,7 @@ export function FeaturesThreeColumn({
         )}
         <div {...stylex.props(styles.grid)}>
           {features.map((feature, index) => {
-            // TODO: Implement feature icon with type safety
-            // const IconComponent = feature.icon
-            //   ? (Icons as any)[feature.icon]
-            //   : null;
+            const IconComponent = feature.icon ? getIcon(feature.icon) : null;
 
             return (
               <div key={index} {...stylex.props(styles.feature)}>
@@ -99,7 +94,7 @@ export function FeaturesThreeColumn({
                   <div {...stylex.props(styles.iconWrapper)}>
                     <IconComponent {...stylex.props(styles.icon)} size={32} />
                   </div>
-                )}*/}
+                )}
                 <h3 {...stylex.props(styles.title)}>{feature.title}</h3>
                 <p {...stylex.props(styles.featureDescription)}>
                   {feature.description}

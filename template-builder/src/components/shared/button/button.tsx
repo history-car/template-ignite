@@ -1,5 +1,3 @@
-"use client";
-
 import { ButtonHTMLAttributes } from "react";
 import * as stylex from "@stylexjs/stylex";
 import { colors, spacing, radius, typography } from "@/styles/tokens.stylex";
