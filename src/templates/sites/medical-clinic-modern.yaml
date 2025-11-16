@@ -1,0 +1,446 @@
+# Medical Clinic Modern Website Template
+# Complete 4-page site with: Home, Services, Doctors, Contact
+
+site:
+  name: "HealthFirst Medical Clinic"
+  description: "Comprehensive healthcare services with compassionate, patient-centered care"
+  domain: "healthfirstclinic.com"
+  language: "en"
+  author: "HealthFirst Medical Clinic"
+  logo:
+    text: "HealthFirst"
+    alt: "HealthFirst Medical Clinic"
+
+theme:
+  preset: "medical-teal"
+  fonts:
+    heading: "sans-serif"
+    body: "sans-serif"
+  borderRadius: "medium"
+
+navigation:
+  logo:
+    text: "HealthFirst"
+    alt: "HealthFirst Medical Clinic"
+  menu:
+    - label: "Home"
+      href: "/"
+    - label: "Services"
+      href: "/services"
+    - label: "Our Doctors"
+      href: "/doctors"
+    - label: "Contact"
+      href: "/contact"
+  cta:
+    text: "Book Appointment"
+    href: "/contact"
+    variant: "primary"
+
+footer:
+  sections:
+    - title: "Services"
+      links:
+        - label: "Primary Care"
+          href: "/services#primary-care"
+        - label: "Pediatrics"
+          href: "/services#pediatrics"
+        - label: "Women's Health"
+          href: "/services#womens-health"
+        - label: "Preventive Care"
+          href: "/services#preventive"
+
+    - title: "About"
+      links:
+        - label: "Our Doctors"
+          href: "/doctors"
+        - label: "Our Facilities"
+          href: "/about#facilities"
+        - label: "Patient Resources"
+          href: "/about#resources"
+
+    - title: "Patient Portal"
+      links:
+        - label: "Book Appointment"
+          href: "/contact"
+        - label: "Patient Forms"
+          href: "/patient-forms"
+        - label: "Insurance"
+          href: "/insurance"
+
+  social:
+    - platform: "facebook"
+      url: "https://facebook.com/healthfirstclinic"
+    - platform: "twitter"
+      url: "https://twitter.com/healthfirstclinic"
+    - platform: "instagram"
+      url: "https://instagram.com/healthfirstclinic"
+
+  copyright: "© 2025 HealthFirst Medical Clinic. All rights reserved."
+
+# Page Definitions
+pages:
+  # Home Page
+  - slug: "home"
+    metadata:
+      title: "HealthFirst Medical Clinic - Comprehensive Healthcare Services"
+      description: "Modern medical clinic offering primary care, pediatrics, women's health, and preventive care. Book your appointment today."
+      navigation: true
+      priority: 1.0
+
+    sections:
+      - variant: "HeroSplitLayout"
+        content:
+          headline: "Your Health, Our Priority"
+          subheadline: "Compassionate Care for Your Whole Family"
+          description: "At HealthFirst Medical Clinic, we provide comprehensive healthcare services with a focus on preventive care and patient wellness."
+          cta:
+            text: "Book Appointment"
+            href: "/contact"
+            variant: "primary"
+          secondaryCta:
+            text: "View Services"
+            href: "/services"
+            variant: "outline"
+          image:
+            src: "https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=800"
+            alt: "Modern medical clinic interior"
+        theme:
+          variant: "clean"
+
+      - variant: "FeaturesThreeColumn"
+        content:
+          heading: "Why Choose HealthFirst"
+          subheading: "Excellence in Patient Care"
+          description: "We're committed to providing the highest quality healthcare"
+          features:
+            - icon: "heart"
+              title: "Patient-Centered Care"
+              description: "We listen to your concerns and create personalized treatment plans tailored to your unique health needs."
+
+            - icon: "shield"
+              title: "Experienced Physicians"
+              description: "Our board-certified doctors bring decades of combined experience across multiple specialties."
+
+            - icon: "clock"
+              title: "Same-Day Appointments"
+              description: "We understand health concerns can't wait. We offer same-day appointments for urgent needs."
+
+      - variant: "StatsSimple"
+        content:
+          heading: "Our Impact on Community Health"
+          stats:
+            - value: "15+"
+              label: "Years Serving Community"
+
+            - value: "25,000+"
+              label: "Patients Treated"
+
+            - value: "12"
+              label: "Specialized Services"
+
+            - value: "98%"
+              label: "Patient Satisfaction"
+
+      - variant: "FeaturesDetailed"
+        content:
+          heading: "Comprehensive Medical Services"
+          description: "Full spectrum of healthcare under one roof"
+          features:
+            - icon: "activity"
+              title: "Primary Care"
+              description: "Annual checkups, chronic disease management, and preventive care for adults of all ages."
+
+            - icon: "heart"
+              title: "Cardiology"
+              description: "Heart health monitoring, EKG testing, and cardiovascular disease prevention and treatment."
+
+            - icon: "baby"
+              title: "Pediatrics"
+              description: "Well-child visits, immunizations, and specialized care for infants, children, and adolescents."
+
+      - variant: "CTASimple"
+        content:
+          heading: "Ready to Take Control of Your Health?"
+          description: "Schedule an appointment with our caring medical team today. We accept most major insurance plans."
+          cta:
+            text: "Book Now"
+            href: "/contact"
+            variant: "primary"
+
+  # Services Page
+  - slug: "services"
+    metadata:
+      title: "Medical Services - HealthFirst Clinic"
+      description: "Comprehensive healthcare services including primary care, pediatrics, women's health, cardiology, and more."
+      navigation: true
+
+    sections:
+      - variant: "HeroFullWidth"
+        content:
+          headline: "Comprehensive Medical Services"
+          subheadline: "Quality Healthcare for Every Stage of Life"
+          description: "From preventive care to specialized treatment, we offer a full range of medical services to keep you and your family healthy."
+          cta:
+            text: "Schedule Visit"
+            href: "/contact"
+            variant: "primary"
+          backgroundImage:
+            src: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=1920"
+            alt: "Medical clinic services"
+
+      - variant: "FeaturesDetailed"
+        content:
+          heading: "Primary Care Services"
+          description: "Comprehensive care for adults and families"
+          features:
+            - icon: "clipboard"
+              title: "Annual Physical Exams"
+              description: "Comprehensive health assessments including lab work, screenings, and preventive care planning."
+
+            - icon: "thermometer"
+              title: "Acute Illness Treatment"
+              description: "Same-day appointments for colds, flu, infections, and other urgent health concerns."
+
+            - icon: "pill"
+              title: "Chronic Disease Management"
+              description: "Ongoing care for diabetes, hypertension, asthma, and other chronic conditions."
+
+      - variant: "FeaturesDetailed"
+        content:
+          heading: "Specialized Services"
+          description: "Expert care from certified specialists"
+          features:
+            - icon: "heart"
+              title: "Cardiology"
+              description: "Heart health monitoring, EKG testing, stress tests, and cardiovascular disease management."
+
+            - icon: "baby"
+              title: "Pediatrics"
+              description: "Well-child visits, immunizations, developmental screenings, and pediatric sick visits."
+
+            - icon: "user"
+              title: "Women's Health"
+              description: "Annual exams, family planning, prenatal care, and menopause management."
+
+      - variant: "FeaturesDetailed"
+        content:
+          heading: "Preventive Care"
+          description: "Stay healthy with proactive care"
+          features:
+            - icon: "shield"
+              title: "Health Screenings"
+              description: "Cancer screenings, diabetes testing, cholesterol checks, and other preventive diagnostics."
+
+            - icon: "syringe"
+              title: "Vaccinations"
+              description: "Flu shots, travel vaccines, and immunizations for all ages according to CDC guidelines."
+
+            - icon: "activity"
+              title: "Wellness Programs"
+              description: "Weight management, nutrition counseling, and lifestyle modification support."
+
+      - variant: "CTASplit"
+        content:
+          headline: "Have Questions About Our Services?"
+          description: "Our friendly staff is ready to help you understand your healthcare options and schedule your visit."
+          cta:
+            text: "Contact Us"
+            href: "/contact"
+            variant: "primary"
+          features:
+            - "Most insurance accepted"
+            - "Same-day appointments"
+            - "Evening hours available"
+          image:
+            src: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800"
+            alt: "Medical consultation"
+
+  # Doctors Page
+  - slug: "doctors"
+    metadata:
+      title: "Our Doctors - HealthFirst Clinic"
+      description: "Meet our team of experienced, board-certified physicians dedicated to your health and wellness."
+      navigation: true
+
+    sections:
+      - variant: "HeroCenteredImage"
+        content:
+          headline: "Meet Our Medical Team"
+          subheadline: "Experienced, Compassionate Physicians"
+          description: "Our board-certified doctors are committed to providing exceptional care with a personal touch."
+          image:
+            src: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=1200"
+            alt: "Medical team"
+
+      - variant: "TeamGrid"
+        content:
+          heading: "Our Physicians"
+          description: "Board-certified doctors with extensive experience"
+          members:
+            - name: "Dr. Jennifer Martinez"
+              role: "Medical Director, Family Medicine"
+              image: "https://i.pravatar.cc/400?img=45"
+              bio: "20+ years experience in family medicine and preventive care"
+
+            - name: "Dr. Michael Chen"
+              role: "Cardiologist"
+              image: "https://i.pravatar.cc/400?img=13"
+              bio: "Specialist in cardiovascular disease and heart health"
+
+            - name: "Dr. Sarah Johnson"
+              role: "Pediatrician"
+              image: "https://i.pravatar.cc/400?img=47"
+              bio: "Expert in child development and pediatric care"
+
+            - name: "Dr. Robert Williams"
+              role: "Internal Medicine"
+              image: "https://i.pravatar.cc/400?img=12"
+              bio: "Specializing in chronic disease management"
+
+      - variant: "FeaturesDetailed"
+        content:
+          heading: "Our Commitment to Excellence"
+          description: "What sets our medical team apart"
+          features:
+            - icon: "award"
+              title: "Board Certified"
+              description: "All our physicians are board-certified in their specialties and maintain active hospital privileges."
+
+            - icon: "book"
+              title: "Continuing Education"
+              description: "Our team stays current with the latest medical advances through ongoing training and education."
+
+            - icon: "users"
+              title: "Patient-Focused"
+              description: "We take time to listen, explain clearly, and involve you in decisions about your healthcare."
+
+      - variant: "StatsHighlight"
+        content:
+          heading: "Our Medical Excellence"
+          description: "Numbers that reflect our commitment to quality care"
+          stats:
+            - value: "75+"
+              label: "Years Combined Experience"
+              description: "Across all specialties"
+
+            - value: "25,000+"
+              label: "Patients Served"
+              description: "In our community"
+
+            - value: "98%"
+              label: "Patient Satisfaction"
+              description: "Based on recent surveys"
+
+      - variant: "CTASimple"
+        content:
+          heading: "Ready to Meet Your New Doctor?"
+          description: "Schedule an appointment with one of our experienced physicians today."
+          cta:
+            text: "Book Appointment"
+            href: "/contact"
+            variant: "primary"
+
+  # Contact Page
+  - slug: "contact"
+    metadata:
+      title: "Contact Us - HealthFirst Clinic"
+      description: "Schedule your appointment or get in touch with our medical team. We're here to help with your healthcare needs."
+      navigation: true
+
+    sections:
+      - variant: "HeroCenteredImage"
+        content:
+          headline: "Schedule Your Visit"
+          subheadline: "We're Here to Help"
+          description: "Book an appointment online or contact us with any questions about our services."
+          image:
+            src: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=1200"
+            alt: "Contact HealthFirst Clinic"
+
+      - variant: "ContactSplit"
+        content:
+          heading: "Get In Touch"
+          description: "Multiple ways to reach our team"
+          contactInfo:
+            - icon: "phone"
+              label: "Phone"
+              value: "+1 (555) 234-5678"
+              href: "tel:+15552345678"
+
+            - icon: "mail"
+              label: "Email"
+              value: "appointments@healthfirstclinic.com"
+              href: "mailto:appointments@healthfirstclinic.com"
+
+            - icon: "map-pin"
+              label: "Address"
+              value: "456 Medical Plaza Drive\nHealthcare District, ST 54321"
+
+            - icon: "clock"
+              label: "Hours"
+              value: "Monday - Friday: 8:00 AM - 6:00 PM\nSaturday: 9:00 AM - 2:00 PM"
+
+          form:
+            fields:
+              - name: "name"
+                label: "Full Name"
+                type: "text"
+                required: true
+
+              - name: "email"
+                label: "Email Address"
+                type: "email"
+                required: true
+
+              - name: "phone"
+                label: "Phone Number"
+                type: "tel"
+                required: true
+
+              - name: "service"
+                label: "Service Needed"
+                type: "select"
+                required: true
+                options:
+                  - "Primary Care"
+                  - "Pediatrics"
+                  - "Cardiology"
+                  - "Women's Health"
+                  - "Other"
+
+              - name: "message"
+                label: "Additional Information"
+                type: "textarea"
+                required: false
+
+            submitText: "Request Appointment"
+            submitAction: "/api/appointments"
+
+      - variant: "FAQAccordion"
+        content:
+          heading: "Frequently Asked Questions"
+          description: "Common questions about visiting our clinic"
+          faqs:
+            - question: "Do I need a referral to see a specialist?"
+              answer: "For most insurance plans, you do not need a referral to see our specialists. However, some plans do require referrals. Please check with your insurance provider."
+
+            - question: "What insurance do you accept?"
+              answer: "We accept most major insurance plans including Medicare and Medicaid. Please call our office to verify your specific plan is accepted."
+
+            - question: "Do you offer telehealth appointments?"
+              answer: "Yes, we offer telehealth appointments for follow-ups and non-emergency consultations. Ask about virtual visits when scheduling."
+
+            - question: "What should I bring to my first appointment?"
+              answer: "Please bring your insurance card, photo ID, list of current medications, and any relevant medical records from previous providers."
+
+            - question: "How do I get my prescription refilled?"
+              answer: "You can request refills through our patient portal, by calling our office, or asking your pharmacy to contact us directly."
+
+      - variant: "CTASimple"
+        content:
+          heading: "Don't Wait to Prioritize Your Health"
+          description: "Book your appointment today and take the first step toward better health and wellness."
+          cta:
+            text: "Schedule Now"
+            href: "#contact-form"
+            variant: "primary"

@@ -2,9 +2,7 @@ import type { Metadata } from 'next';
 import { loadSiteConfig } from '@/lib/site-generator';
 import { SiteLayout } from '@/components/layout/site-layout';
 import { WebVitalsReporter } from '@/components/web-vitals-reporter';
-
-// Path to active template
-const ACTIVE_TEMPLATE = './src/templates/sites/law-firm-professional.yaml';
+import { getActiveTemplatePath } from '@/lib/template-registry';
 
 export const metadata: Metadata = {
   title: 'Template Ignite',
@@ -17,7 +15,7 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   // Load site configuration for layout components
-  const config = await loadSiteConfig(ACTIVE_TEMPLATE);
+  const config = await loadSiteConfig(getActiveTemplatePath());
 
   return (
     <html lang="en">

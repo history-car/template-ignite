@@ -1,17 +1,15 @@
 import { notFound } from 'next/navigation';
 import { loadSiteConfig, getPageConfig } from '@/lib/site-generator';
 import { RenderSections } from '@/lib/page-renderer';
+import { getActiveTemplatePath } from '@/lib/template-registry';
 import type { Metadata } from 'next';
-
-// Path to active template
-const ACTIVE_TEMPLATE = './src/templates/sites/law-firm-professional.yaml';
 
 /**
  * Generate static paths for all pages in the site
  * This enables Static Site Generation (SSG) at build time
  */
 export async function generateStaticParams() {
-  const config = await loadSiteConfig(ACTIVE_TEMPLATE);
+  const config = await loadSiteConfig(getActiveTemplatePath());
 
   const params = config.pages
     .filter((page) => page.slug !== 'home') // Exclude home, it's handled by /page.tsx
@@ -31,7 +29,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug: slugParam } = await params;
-  const config = await loadSiteConfig(ACTIVE_TEMPLATE);
+  const config = await loadSiteConfig(getActiveTemplatePath());
   const slug = slugParam || 'home';
   const page = getPageConfig(config, slug);
 
@@ -64,7 +62,7 @@ export default async function Page({
   params: Promise<{ slug: string }>;
 }) {
   const { slug: slugParam } = await params;
-  const config = await loadSiteConfig(ACTIVE_TEMPLATE);
+  const config = await loadSiteConfig(getActiveTemplatePath());
   const slug = slugParam || 'home';
   const page = getPageConfig(config, slug);
 

@@ -1,0 +1,419 @@
+# Restaurant Elegant Website Template
+# Complete 3-page site with: Home, Menu, Contact
+
+site:
+  name: "La Belle Cuisine"
+  description: "Fine dining experience with seasonal ingredients and French-inspired cuisine"
+  domain: "labellecuisine.com"
+  language: "en"
+  author: "La Belle Cuisine"
+  logo:
+    text: "La Belle Cuisine"
+    alt: "La Belle Cuisine Restaurant"
+
+theme:
+  preset: "warm-orange"
+  fonts:
+    heading: "serif"
+    body: "sans-serif"
+  borderRadius: "large"
+
+navigation:
+  logo:
+    text: "La Belle Cuisine"
+    alt: "La Belle Cuisine Restaurant"
+  menu:
+    - label: "Home"
+      href: "/"
+    - label: "Menu"
+      href: "/menu"
+    - label: "Contact"
+      href: "/contact"
+  cta:
+    text: "Reserve Table"
+    href: "/contact"
+    variant: "primary"
+
+footer:
+  sections:
+    - title: "Menu"
+      links:
+        - label: "Dinner Menu"
+          href: "/menu#dinner"
+        - label: "Wine List"
+          href: "/menu#wine"
+        - label: "Desserts"
+          href: "/menu#desserts"
+        - label: "Special Events"
+          href: "/menu#events"
+
+    - title: "About"
+      links:
+        - label: "Our Story"
+          href: "/about"
+        - label: "Chef's Biography"
+          href: "/about#chef"
+        - label: "Private Dining"
+          href: "/about#private"
+
+    - title: "Visit Us"
+      links:
+        - label: "Reservations"
+          href: "/contact"
+        - label: "Location & Hours"
+          href: "/contact#location"
+        - label: "Gift Cards"
+          href: "/gift-cards"
+
+  social:
+    - platform: "instagram"
+      url: "https://instagram.com/labellecuisine"
+    - platform: "facebook"
+      url: "https://facebook.com/labellecuisine"
+    - platform: "twitter"
+      url: "https://twitter.com/labellecuisine"
+
+  copyright: "© 2025 La Belle Cuisine. All rights reserved."
+
+# Page Definitions
+pages:
+  # Home Page
+  - slug: "home"
+    metadata:
+      title: "La Belle Cuisine - Fine French Dining Experience"
+      description: "Exquisite French-inspired cuisine in an elegant atmosphere. Fresh, seasonal ingredients crafted into unforgettable dining experiences."
+      navigation: true
+      priority: 1.0
+
+    sections:
+      - variant: "HeroFullWidth"
+        content:
+          headline: "An Unforgettable Dining Experience"
+          subheadline: "French-Inspired Cuisine with Seasonal Elegance"
+          description: "Savor the artistry of fine dining where every dish tells a story of passion, tradition, and culinary excellence."
+          cta:
+            text: "Reserve Your Table"
+            href: "/contact"
+            variant: "primary"
+          secondaryCta:
+            text: "View Menu"
+            href: "/menu"
+            variant: "outline"
+          backgroundImage:
+            src: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1920"
+            alt: "Elegant restaurant interior"
+
+      - variant: "FeaturesThreeColumn"
+        content:
+          heading: "The La Belle Cuisine Experience"
+          subheading: "Where Culinary Art Meets Hospitality"
+          description: "Every detail designed for your enjoyment"
+          features:
+            - icon: "chef-hat"
+              title: "Award-Winning Chef"
+              description: "Chef André Laurent brings 25 years of Michelin-starred experience to create exceptional seasonal menus."
+
+            - icon: "wine"
+              title: "Curated Wine Selection"
+              description: "Over 300 carefully selected wines from renowned vineyards around the world to complement every dish."
+
+            - icon: "sparkles"
+              title: "Elegant Atmosphere"
+              description: "Intimate dining spaces perfect for romantic dinners, celebrations, and special occasions."
+
+      - variant: "StatsSimple"
+        content:
+          heading: "Our Culinary Heritage"
+          stats:
+            - value: "25+"
+              label: "Years Excellence"
+
+            - value: "2"
+              label: "Michelin Stars"
+
+            - value: "300+"
+              label: "Premium Wines"
+
+            - value: "50"
+              label: "Seasonal Dishes"
+
+      - variant: "FeaturesDetailed"
+        content:
+          heading: "What Makes Us Special"
+          description: "The art of fine dining perfected"
+          features:
+            - icon: "leaf"
+              title: "Farm-to-Table Philosophy"
+              description: "We partner with local farmers and artisans to source the freshest seasonal ingredients, ensuring quality and sustainability."
+
+            - icon: "utensils"
+              title: "Seasonal Menus"
+              description: "Our menu changes with the seasons to showcase ingredients at their peak flavor and freshness."
+
+            - icon: "heart"
+              title: "Personalized Service"
+              description: "Our attentive staff ensures every guest receives exceptional, personalized service throughout their dining experience."
+
+      - variant: "TestimonialsGrid"
+        content:
+          heading: "What Our Guests Say"
+          description: "Reviews from our valued patrons"
+          testimonials:
+            - quote: "The most exquisite dining experience we've had. Every dish was a masterpiece, and the service was impeccable."
+              author: "Emily Richardson"
+              role: "Food Critic"
+              rating: 5
+
+            - quote: "Chef Laurent's creativity shines through in every bite. The seasonal tasting menu exceeded all expectations."
+              author: "James Martinez"
+              role: "Verified Diner"
+              rating: 5
+
+            - quote: "Perfect ambiance for our anniversary dinner. The wine pairing was exceptional and complemented each course beautifully."
+              author: "Sarah & Michael Chen"
+              role: "Anniversary Celebration"
+              rating: 5
+
+      - variant: "CTASimple"
+        content:
+          heading: "Ready for an Extraordinary Experience?"
+          description: "Reserve your table today and discover why La Belle Cuisine is the region's premier fine dining destination."
+          cta:
+            text: "Make Reservation"
+            href: "/contact"
+            variant: "primary"
+
+  # Menu Page
+  - slug: "menu"
+    metadata:
+      title: "Menu - La Belle Cuisine"
+      description: "Explore our seasonal menu featuring French-inspired dishes crafted with the finest local ingredients."
+      navigation: true
+
+    sections:
+      - variant: "HeroCenteredImage"
+        content:
+          headline: "Seasonal Menu"
+          subheadline: "Culinary Artistry on Every Plate"
+          description: "Our menu celebrates the finest seasonal ingredients, transformed into exquisite French-inspired dishes by Chef André Laurent."
+          cta:
+            text: "Reserve Table"
+            href: "/contact"
+            variant: "primary"
+          image:
+            src: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1200"
+            alt: "Gourmet dish presentation"
+
+      - variant: "FeaturesDetailed"
+        content:
+          heading: "Appetizers"
+          description: "Begin your culinary journey"
+          features:
+            - icon: "plate"
+              title: "Seared Foie Gras"
+              description: "Hudson Valley foie gras with fig compote, brioche toast, and aged balsamic reduction. $28"
+
+            - icon: "fish"
+              title: "Oysters on the Half Shell"
+              description: "Daily selection of East and West Coast oysters, mignonette, cocktail sauce, lemon. Market Price"
+
+            - icon: "salad"
+              title: "Heirloom Tomato Salad"
+              description: "Seasonal heirloom tomatoes, burrata, basil oil, microgreens, sea salt. $18"
+
+      - variant: "FeaturesDetailed"
+        content:
+          heading: "Main Courses"
+          description: "Signature entrées crafted to perfection"
+          features:
+            - icon: "meat"
+              title: "Beef Wellington"
+              description: "Prime beef tenderloin, mushroom duxelles, prosciutto, puff pastry, red wine demi-glace. $58"
+
+            - icon: "fish"
+              title: "Pan-Seared Sea Bass"
+              description: "Mediterranean sea bass, saffron risotto, fennel confit, citrus beurre blanc. $48"
+
+            - icon: "chicken"
+              title: "Duck Breast à l'Orange"
+              description: "Roasted duck breast, orange gastrique, fingerling potatoes, seasonal vegetables. $42"
+
+      - variant: "FeaturesDetailed"
+        content:
+          heading: "Desserts"
+          description: "Sweet endings to your dining experience"
+          features:
+            - icon: "cake"
+              title: "Chocolate Soufflé"
+              description: "Dark chocolate soufflé, vanilla bean ice cream, crème anglaise. Serves 2. $16"
+
+            - icon: "coffee"
+              title: "Crème Brûlée"
+              description: "Classic vanilla bean custard, caramelized sugar, fresh berries. $12"
+
+            - icon: "dessert"
+              title: "Seasonal Fruit Tart"
+              description: "Fresh seasonal fruits, vanilla pastry cream, almond frangipane crust. $14"
+
+      - variant: "FeaturesThreeColumn"
+        content:
+          heading: "Special Dining Options"
+          description: "Enhance your experience"
+          features:
+            - icon: "wine"
+              title: "Wine Pairing"
+              description: "Sommelier-selected wines to complement each course of your meal. $45 per person"
+
+            - icon: "sparkles"
+              title: "Chef's Tasting Menu"
+              description: "7-course journey through our finest seasonal offerings. $125 per person"
+
+            - icon: "users"
+              title: "Private Dining"
+              description: "Exclusive dining room for parties of 8-20 guests. Custom menus available."
+
+      - variant: "CTASplit"
+        content:
+          headline: "Experience Our Seasonal Menu"
+          description: "Reserve your table and indulge in an unforgettable dining experience crafted by award-winning Chef André Laurent."
+          cta:
+            text: "Book Now"
+            href: "/contact"
+            variant: "primary"
+          features:
+            - "Seasonal ingredients"
+            - "Wine pairings available"
+            - "Vegetarian options"
+          image:
+            src: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800"
+            alt: "Fine dining experience"
+
+  # Contact Page
+  - slug: "contact"
+    metadata:
+      title: "Reservations - La Belle Cuisine"
+      description: "Reserve your table at La Belle Cuisine. We look forward to serving you an exceptional dining experience."
+      navigation: true
+
+    sections:
+      - variant: "HeroCenteredImage"
+        content:
+          headline: "Reserve Your Table"
+          subheadline: "We Look Forward to Serving You"
+          description: "Experience the finest in French-inspired cuisine. Reservations are recommended for dinner service."
+          image:
+            src: "https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?w=1200"
+            alt: "Restaurant dining room"
+
+      - variant: "ContactSplit"
+        content:
+          heading: "Visit Us"
+          description: "We're located in the heart of downtown"
+          contactInfo:
+            - icon: "phone"
+              label: "Reservations"
+              value: "+1 (555) 345-6789"
+              href: "tel:+15553456789"
+
+            - icon: "mail"
+              label: "Email"
+              value: "reservations@labellecuisine.com"
+              href: "mailto:reservations@labellecuisine.com"
+
+            - icon: "map-pin"
+              label: "Address"
+              value: "789 Gourmet Avenue\nDowntown District, ST 98765"
+
+            - icon: "clock"
+              label: "Hours"
+              value: "Dinner: Tuesday - Saturday 5:00 PM - 10:00 PM\nSunday: 4:00 PM - 9:00 PM\nClosed Monday"
+
+          form:
+            fields:
+              - name: "name"
+                label: "Full Name"
+                type: "text"
+                required: true
+
+              - name: "email"
+                label: "Email Address"
+                type: "email"
+                required: true
+
+              - name: "phone"
+                label: "Phone Number"
+                type: "tel"
+                required: true
+
+              - name: "date"
+                label: "Preferred Date"
+                type: "date"
+                required: true
+
+              - name: "time"
+                label: "Preferred Time"
+                type: "select"
+                required: true
+                options:
+                  - "5:00 PM"
+                  - "5:30 PM"
+                  - "6:00 PM"
+                  - "6:30 PM"
+                  - "7:00 PM"
+                  - "7:30 PM"
+                  - "8:00 PM"
+                  - "8:30 PM"
+                  - "9:00 PM"
+
+              - name: "guests"
+                label: "Number of Guests"
+                type: "select"
+                required: true
+                options:
+                  - "1"
+                  - "2"
+                  - "3"
+                  - "4"
+                  - "5"
+                  - "6"
+                  - "7+"
+
+              - name: "message"
+                label: "Special Requests"
+                type: "textarea"
+                required: false
+
+            submitText: "Request Reservation"
+            submitAction: "/api/reservations"
+
+      - variant: "FAQAccordion"
+        content:
+          heading: "Reservation Information"
+          description: "Common questions about dining with us"
+          faqs:
+            - question: "Do you require reservations?"
+              answer: "While walk-ins are welcome, we highly recommend reservations, especially for dinner service and weekends. This ensures we can provide you with the best possible experience."
+
+            - question: "What is your dress code?"
+              answer: "We maintain a smart casual to business casual dress code. Jackets are appreciated but not required. We kindly ask that guests avoid athletic wear, shorts, and flip-flops."
+
+            - question: "Do you accommodate dietary restrictions?"
+              answer: "Absolutely. Please inform us of any dietary restrictions or allergies when making your reservation, and our chef will be happy to accommodate your needs."
+
+            - question: "Is there parking available?"
+              answer: "We offer complimentary valet parking for all dinner guests. Street parking and public parking garages are also available nearby."
+
+            - question: "Do you offer private dining?"
+              answer: "Yes, our private dining room accommodates parties of 8-20 guests. Custom menus and wine pairings are available. Please contact us directly to discuss your event."
+
+            - question: "What is your cancellation policy?"
+              answer: "We request at least 24 hours notice for cancellations. For parties of 6 or more, we require 48 hours notice. A credit card is required to hold reservations for parties of 5 or more."
+
+      - variant: "CTASimple"
+        content:
+          heading: "Ready to Dine with Us?"
+          description: "Reserve your table today and discover why La Belle Cuisine is the destination for exceptional French-inspired dining."
+          cta:
+            text: "Make Reservation"
+            href: "#contact-form"
+            variant: "primary"
