@@ -120,10 +120,10 @@ export function TeamGrid({ content, theme }: TeamGridProps) {
           {members.map((member, index) => (
             <div key={index} {...stylex.props(styles.member)}>
               <div {...stylex.props(styles.imageWrapper)}>
-                {member.image ? (
+                {member.image && member.image.src ? (
                   <Image
                     src={member.image.src}
-                    alt={member.image.alt}
+                    alt={member.image.alt || `${member.name} - ${member.role}`}
                     fill
                     {...stylex.props(styles.image)}
                   />

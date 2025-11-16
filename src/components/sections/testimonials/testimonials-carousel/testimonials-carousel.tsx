@@ -209,10 +209,10 @@ export function TestimonialsCarousel({
             </blockquote>
 
             <div {...stylex.props(styles.authorSection)}>
-              {currentTestimonial.image && (
+              {currentTestimonial.image && currentTestimonial.image.src && (
                 <Image
                   src={currentTestimonial.image.src}
-                  alt={currentTestimonial.image.alt}
+                  alt={currentTestimonial.image.alt || currentTestimonial.author}
                   width={64}
                   height={64}
                   {...stylex.props(styles.authorImage)}

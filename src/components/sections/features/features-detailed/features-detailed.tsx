@@ -173,11 +173,11 @@ export function FeaturesDetailed({ content, theme }: FeaturesDetailedProps) {
                     </ul>
                   )}
                 </div>
-                {feature.image && (
+                {feature.image && feature.image.src && (
                   <div {...stylex.props(styles.imageWrapper)}>
                     <Image
                       src={feature.image.src}
-                      alt={feature.image.alt}
+                      alt={feature.image.alt || `${feature.title} illustration`}
                       width={feature.image.width || 600}
                       height={feature.image.height || 450}
                       {...stylex.props(styles.image)}

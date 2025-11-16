@@ -1,0 +1,415 @@
+# Law Firm Professional Website Template
+# Complete 4-page site with: Home, About, Practice Areas, Contact
+
+site:
+  name: "Thompson & Associates Law Firm"
+  description: "Experienced legal representation in corporate law, family law, and estate planning"
+  domain: "thompsonlaw.com"
+  language: "en"
+  author: "Thompson & Associates"
+  logo:
+    text: "Thompson & Associates"
+    alt: "Thompson & Associates Law Firm"
+
+theme:
+  preset: "legal-burgundy"
+  fonts:
+    heading: "serif"
+    body: "sans-serif"
+  borderRadius: "small"
+
+navigation:
+  logo:
+    text: "Thompson & Associates"
+    alt: "Thompson & Associates Law Firm"
+  menu:
+    - label: "Home"
+      href: "/"
+    - label: "About"
+      href: "/about"
+    - label: "Practice Areas"
+      href: "/practice-areas"
+    - label: "Contact"
+      href: "/contact"
+  cta:
+    text: "Free Consultation"
+    href: "/contact"
+    variant: "primary"
+
+footer:
+  sections:
+    - title: "Practice Areas"
+      links:
+        - label: "Corporate Law"
+          href: "/practice-areas#corporate"
+        - label: "Family Law"
+          href: "/practice-areas#family"
+        - label: "Estate Planning"
+          href: "/practice-areas#estate"
+        - label: "Real Estate Law"
+          href: "/practice-areas#real-estate"
+
+    - title: "About Us"
+      links:
+        - label: "Our Team"
+          href: "/about#team"
+        - label: "Our Values"
+          href: "/about#values"
+        - label: "Case Results"
+          href: "/about#results"
+
+    - title: "Contact"
+      links:
+        - label: "Schedule Consultation"
+          href: "/contact"
+        - label: "Office Locations"
+          href: "/contact#locations"
+        - label: "Client Portal"
+          href: "https://portal.thompsonlaw.com"
+
+  social:
+    - platform: "linkedin"
+      url: "https://linkedin.com/company/thompson-law"
+    - platform: "facebook"
+      url: "https://facebook.com/thompsonlaw"
+    - platform: "twitter"
+      url: "https://twitter.com/thompsonlaw"
+
+  copyright: "© 2025 Thompson & Associates. All rights reserved."
+
+# Page Definitions
+pages:
+  # Home Page
+  - slug: "home"
+    metadata:
+      title: "Thompson & Associates - Experienced Legal Representation"
+      description: "Leading law firm providing expert legal services in corporate, family, and estate law. Schedule your free consultation today."
+      navigation: true
+      priority: 1.0
+
+    sections:
+      - variant: "HeroCenteredImage"
+        content:
+          headline: "Trusted Legal Expertise"
+          subheadline: "Protecting Your Rights for Over 25 Years"
+          description: "Thompson & Associates provides comprehensive legal services with a focus on achieving the best outcomes for our clients."
+          cta:
+            text: "Schedule Free Consultation"
+            href: "/contact"
+            variant: "primary"
+          secondaryCta:
+            text: "View Practice Areas"
+            href: "/practice-areas"
+            variant: "outline"
+          image:
+            src: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1200"
+            alt: "Professional lawyers in consultation"
+        theme:
+          variant: "professional"
+
+      - variant: "FeaturesThreeColumn"
+        content:
+          heading: "Why Choose Thompson & Associates"
+          subheading: "Excellence in Legal Representation"
+          description: "Our commitment to client success sets us apart"
+          features:
+            - icon: "scale"
+              title: "25+ Years Experience"
+              description: "Decades of proven success in complex legal matters across multiple practice areas."
+
+            - icon: "users"
+              title: "Client-Focused Approach"
+              description: "Personalized attention and strategic counsel tailored to your unique situation."
+
+            - icon: "award"
+              title: "Proven Track Record"
+              description: "Consistent results and recognition from legal associations and satisfied clients."
+
+      - variant: "StatsSimple"
+        content:
+          heading: "Our Track Record"
+          stats:
+            - value: "25+"
+              label: "Years of Experience"
+
+            - value: "5,000+"
+              label: "Cases Handled"
+
+            - value: "98%"
+              label: "Client Satisfaction"
+
+            - value: "15"
+              label: "Expert Attorneys"
+
+      - variant: "CTASimple"
+        content:
+          heading: "Ready to Discuss Your Case?"
+          description: "Contact us today for a free consultation. We're here to help you navigate your legal challenges with confidence."
+          cta:
+            text: "Get Started"
+            href: "/contact"
+            variant: "primary"
+
+  # About Page
+  - slug: "about"
+    metadata:
+      title: "About Us - Thompson & Associates"
+      description: "Meet our experienced legal team and learn about our firm's history, values, and commitment to excellence."
+      navigation: true
+
+    sections:
+      - variant: "HeroSplitLayout"
+        content:
+          headline: "About Thompson & Associates"
+          subheadline: "A Legacy of Legal Excellence"
+          description: "Founded in 1998, Thompson & Associates has grown to become one of the region's most respected law firms, known for our unwavering commitment to client success."
+          cta:
+            text: "Meet Our Team"
+            href: "#team"
+            variant: "primary"
+          image:
+            src: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=800"
+            alt: "Law firm office"
+        theme:
+          textAlign: "left"
+
+      - variant: "FeaturesDetailed"
+        content:
+          heading: "Our Core Values"
+          description: "The principles that guide everything we do"
+          features:
+            - icon: "scale"
+              title: "Integrity"
+              description: "We uphold the highest ethical standards in every case we handle, ensuring transparent and honest communication with our clients."
+
+            - icon: "shield"
+              title: "Excellence"
+              description: "Our team of experienced attorneys brings unparalleled expertise and dedication to achieving optimal outcomes."
+
+            - icon: "heart"
+              title: "Compassion"
+              description: "We understand that legal matters can be stressful. We provide supportive guidance throughout the entire process."
+
+      - variant: "TeamGrid"
+        content:
+          heading: "Our Legal Team"
+          description: "Meet the experienced attorneys dedicated to your success"
+          members:
+            - name: "Michael Thompson"
+              role: "Senior Partner, Corporate Law"
+              image: "https://i.pravatar.cc/400?img=12"
+              bio: "25+ years specializing in corporate mergers and acquisitions"
+
+            - name: "Sarah Chen"
+              role: "Partner, Family Law"
+              image: "https://i.pravatar.cc/400?img=47"
+              bio: "Expert in divorce, custody, and family mediation"
+
+            - name: "David Rodriguez"
+              role: "Partner, Estate Planning"
+              image: "https://i.pravatar.cc/400?img=33"
+              bio: "Specializing in wills, trusts, and probate law"
+
+            - name: "Emily Patterson"
+              role: "Associate, Real Estate Law"
+              image: "https://i.pravatar.cc/400?img=48"
+              bio: "Focused on commercial and residential real estate transactions"
+
+      - variant: "StatsHighlight"
+        content:
+          heading: "Our Impact"
+          description: "Numbers that reflect our commitment to excellence"
+          stats:
+            - value: "$50M+"
+              label: "Client Recoveries"
+              description: "Successfully recovered for our clients"
+
+            - value: "500+"
+              label: "Corporate Deals"
+              description: "Completed transactions"
+
+            - value: "98%"
+              label: "Success Rate"
+              description: "In contested cases"
+
+  # Practice Areas Page
+  - slug: "practice-areas"
+    metadata:
+      title: "Practice Areas - Thompson & Associates"
+      description: "Comprehensive legal services across corporate law, family law, estate planning, and real estate law."
+      navigation: true
+
+    sections:
+      - variant: "HeroFullWidth"
+        content:
+          headline: "Our Practice Areas"
+          subheadline: "Comprehensive Legal Services"
+          description: "We provide expert legal representation across multiple practice areas, delivering results that exceed expectations."
+          cta:
+            text: "Schedule Consultation"
+            href: "/contact"
+            variant: "primary"
+          backgroundImage:
+            src: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1920"
+            alt: "Legal documents and gavel"
+
+      - variant: "FeaturesDetailed"
+        content:
+          heading: "Corporate Law"
+          description: "Strategic legal counsel for businesses of all sizes"
+          features:
+            - icon: "briefcase"
+              title: "Mergers & Acquisitions"
+              description: "Expert guidance through complex business transactions, from due diligence to closing."
+
+            - icon: "file-text"
+              title: "Contract Negotiations"
+              description: "Drafting and negotiating contracts that protect your business interests."
+
+            - icon: "users"
+              title: "Corporate Governance"
+              description: "Advice on compliance, board matters, and corporate structure."
+
+      - variant: "FeaturesDetailed"
+        content:
+          heading: "Family Law"
+          description: "Compassionate representation in family matters"
+          features:
+            - icon: "heart"
+              title: "Divorce & Separation"
+              description: "Skilled negotiation and litigation for fair divorce settlements."
+
+            - icon: "home"
+              title: "Child Custody"
+              description: "Protecting children's best interests in custody and visitation matters."
+
+            - icon: "dollar-sign"
+              title: "Asset Division"
+              description: "Equitable distribution of marital property and financial assets."
+
+      - variant: "FeaturesDetailed"
+        content:
+          heading: "Estate Planning"
+          description: "Secure your legacy and protect your loved ones"
+          features:
+            - icon: "file-text"
+              title: "Wills & Trusts"
+              description: "Comprehensive estate planning documents tailored to your wishes."
+
+            - icon: "shield"
+              title: "Probate Administration"
+              description: "Efficient management of estate administration and probate proceedings."
+
+            - icon: "trending-up"
+              title: "Tax Planning"
+              description: "Strategies to minimize estate taxes and maximize asset protection."
+
+      - variant: "CTASplit"
+        content:
+          headline: "Need Legal Guidance?"
+          description: "Our experienced attorneys are ready to help you navigate your legal challenges. Contact us today for a free consultation."
+          cta:
+            text: "Free Consultation"
+            href: "/contact"
+            variant: "primary"
+          features:
+            - "25+ years of experience"
+            - "Proven track record"
+            - "Personalized attention"
+          image:
+            src: "https://images.unsplash.com/photo-1505663912202-ac22d4cb3707?w=800"
+            alt: "Attorney consultation"
+
+  # Contact Page
+  - slug: "contact"
+    metadata:
+      title: "Contact Us - Thompson & Associates"
+      description: "Get in touch with our legal team. Schedule your free consultation today."
+      navigation: true
+
+    sections:
+      - variant: "HeroCenteredImage"
+        content:
+          headline: "Get In Touch"
+          subheadline: "Schedule Your Free Consultation"
+          description: "We're here to help. Reach out to discuss your legal needs with our experienced team."
+          image:
+            src: "https://images.unsplash.com/photo-1556761175-b413da4baf72?w=1200"
+            alt: "Contact us"
+
+      - variant: "ContactSplit"
+        content:
+          heading: "Contact Information"
+          description: "Reach out through your preferred method"
+          contactInfo:
+            - icon: "phone"
+              label: "Phone"
+              value: "+1 (555) 123-4567"
+              href: "tel:+15551234567"
+
+            - icon: "mail"
+              label: "Email"
+              value: "contact@thompsonlaw.com"
+              href: "mailto:contact@thompsonlaw.com"
+
+            - icon: "map-pin"
+              label: "Address"
+              value: "123 Legal Plaza, Suite 500\nDowntown District, ST 12345"
+
+            - icon: "clock"
+              label: "Hours"
+              value: "Monday - Friday: 9:00 AM - 6:00 PM\nSaturday: By Appointment"
+
+          form:
+            fields:
+              - name: "name"
+                label: "Full Name"
+                type: "text"
+                required: true
+
+              - name: "email"
+                label: "Email Address"
+                type: "email"
+                required: true
+
+              - name: "phone"
+                label: "Phone Number"
+                type: "tel"
+                required: false
+
+              - name: "message"
+                label: "Tell us about your case"
+                type: "textarea"
+                required: true
+
+            submitText: "Request Consultation"
+            submitAction: "/api/contact"
+
+      - variant: "FAQAccordion"
+        content:
+          heading: "Frequently Asked Questions"
+          description: "Common questions about our services"
+          faqs:
+            - question: "Do you offer free consultations?"
+              answer: "Yes, we offer free initial consultations for all new clients. This allows us to understand your needs and determine how we can best assist you."
+
+            - question: "What are your fees?"
+              answer: "Our fees vary depending on the complexity and type of case. We offer transparent pricing and will discuss all costs during your initial consultation."
+
+            - question: "How long does a typical case take?"
+              answer: "The timeline varies significantly based on the type of case and its complexity. We'll provide an estimated timeline during your consultation."
+
+            - question: "Do you handle cases outside the local area?"
+              answer: "Yes, we handle cases statewide and can coordinate with attorneys in other jurisdictions when necessary."
+
+            - question: "How can I prepare for my consultation?"
+              answer: "Bring any relevant documents, a list of questions, and a brief summary of your situation. This helps us make the most of our time together."
+
+      - variant: "CTASimple"
+        content:
+          heading: "Ready to Get Started?"
+          description: "Don't wait to address your legal needs. Contact us today and let our experienced team guide you toward a successful resolution."
+          cta:
+            text: "Schedule Consultation"
+            href: "#contact-form"
+            variant: "primary"

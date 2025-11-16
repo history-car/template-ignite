@@ -90,6 +90,11 @@ export function FAQAccordion({ content, theme }: FAQAccordionProps) {
     setOpenIndex(openIndex === index ? null : index);
   };
 
+  // Validate faqs is an array
+  if (!faqs || !Array.isArray(faqs) || faqs.length === 0) {
+    return null;
+  }
+
   return (
     <section
       {...stylex.props(styles.faq)}

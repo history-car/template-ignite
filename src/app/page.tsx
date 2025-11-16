@@ -1,37 +1,19 @@
-import * as stylex from '@stylexjs/stylex';
-import { colors, spacing, typography } from '@/styles/tokens.stylex';
+import { loadSiteConfig, getPageConfig } from '@/lib/site-generator';
+import { RenderSections } from '@/lib/page-renderer';
 
-const styles = stylex.create({
-  container: {
-    minHeight: '100vh',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: spacing.xl,
-    backgroundColor: colors.backgroundAlt,
-  },
-  title: {
-    fontSize: typography.fontSize1,
-    fontWeight: 'bold',
-    color: colors.text,
-    marginBottom: spacing.md,
-  },
-  description: {
-    fontSize: typography.fontSize4,
-    color: colors.textMuted,
-    textAlign: 'center',
-    maxWidth: '600px',
-  },
-});
+// Path to active template
+const ACTIVE_TEMPLATE = './src/templates/sites/law-firm-professional.yaml';
 
-export default function Home() {
-  return (
-    <main {...stylex.props(styles.container)}>
-      <h1 {...stylex.props(styles.title)}>Template Ignite</h1>
-      <p {...stylex.props(styles.description)}>
-        Multi-page website generation system with 19 validated section components
-      </p>
-    </main>
-  );
+/**
+ * Homepage - renders the 'home' page from site configuration
+ */
+export default async function Home() {
+  const config = await loadSiteConfig(ACTIVE_TEMPLATE);
+  const homePage = getPageConfig(config, 'home');
+
+  if (!homePage) {
+    return <div>Home page not configured</div>;
+  }
+
+  return <RenderSections sections={homePage.sections} />;
 }

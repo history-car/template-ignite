@@ -143,10 +143,10 @@ export function TeamCards({ content, theme }: TeamCardsProps) {
             <div key={index} {...stylex.props(styles.card)}>
               <div {...stylex.props(styles.cardContent)}>
                 <div {...stylex.props(styles.imageWrapper)}>
-                  {member.image ? (
+                  {member.image && member.image.src ? (
                     <Image
                       src={member.image.src}
-                      alt={member.image.alt}
+                      alt={member.image.alt || `${member.name} - ${member.role}`}
                       fill
                       {...stylex.props(styles.image)}
                     />

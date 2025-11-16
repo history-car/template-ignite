@@ -90,6 +90,12 @@ export function HeroFullWidth({ content }: HeroFullWidthProps) {
     secondaryCta,
     backgroundImage,
   } = content;
+
+  // Return early if no background image
+  if (!backgroundImage || !backgroundImage.src) {
+    return null;
+  }
+
   const overlay = backgroundImage.overlay || "dark";
   const overlayOpacity = backgroundImage.overlayOpacity || 0.5;
 
@@ -97,7 +103,7 @@ export function HeroFullWidth({ content }: HeroFullWidthProps) {
     <section {...stylex.props(styles.hero)}>
       <Image
         src={backgroundImage.src}
-        alt={backgroundImage.alt}
+        alt={backgroundImage.alt || 'Hero background'}
         fill
         {...stylex.props(styles.backgroundImage)}
         priority
@@ -123,16 +129,18 @@ export function HeroFullWidth({ content }: HeroFullWidthProps) {
           {description && (
             <p {...stylex.props(styles.description)}>{description}</p>
           )}
-          <div {...stylex.props(styles.ctas)}>
-            <Button asChild variant={cta.variant || "primary"} size="large">
-              <a href={cta.href}>{cta.text}</a>
-            </Button>
-            {secondaryCta && (
-              <Button asChild variant="outline" size="large">
-                <a href={secondaryCta.href}>{secondaryCta.text}</a>
+          {cta && (
+            <div {...stylex.props(styles.ctas)}>
+              <Button asChild variant={cta.variant || "primary"} size="large">
+                <a href={cta.href}>{cta.text}</a>
               </Button>
-            )}
-          </div>
+              {secondaryCta && (
+                <Button asChild variant="outline" size="large">
+                  <a href={secondaryCta.href}>{secondaryCta.text}</a>
+                </Button>
+              )}
+            </div>
+          )}
         </div>
       </Container>
     </section>

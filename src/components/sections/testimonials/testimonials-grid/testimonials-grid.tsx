@@ -126,10 +126,10 @@ export function TestimonialsGrid({ content, theme }: TestimonialsGridProps) {
               </blockquote>
 
               <div {...stylex.props(styles.authorSection)}>
-                {testimonial.image && (
+                {testimonial.image && testimonial.image.src && (
                   <Image
                     src={testimonial.image.src}
-                    alt={testimonial.image.alt}
+                    alt={testimonial.image.alt || testimonial.author}
                     width={48}
                     height={48}
                     {...stylex.props(styles.authorImage)}

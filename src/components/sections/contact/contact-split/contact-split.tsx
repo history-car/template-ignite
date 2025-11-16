@@ -139,6 +139,17 @@ export function ContactSplit({ content, theme }: ContactSplitProps) {
     console.log("Form submitted:", Object.fromEntries(formData));
   };
 
+  // Validate contactInfo and form.fields are arrays
+  if (!contactInfo || !Array.isArray(contactInfo)) {
+    console.error('ContactSplit: contactInfo must be an array', contactInfo);
+    return null;
+  }
+
+  if (!form || !form.fields || !Array.isArray(form.fields)) {
+    console.error('ContactSplit: form.fields must be an array', form);
+    return null;
+  }
+
   return (
     <section
       {...stylex.props(styles.contact)}

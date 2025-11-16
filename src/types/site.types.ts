@@ -4,13 +4,34 @@
  */
 
 import { PageConfig } from './page.types';
+import { ThemeId } from './theme.types';
 
 export interface SiteConfig {
   site: SiteMetadata;
   navigation: NavigationConfig;
   footer?: FooterConfig;
-  theme?: ThemeConfig;
+  theme?: SiteThemeConfig;
   pages: PageConfig[];
+}
+
+/**
+ * Site-specific theme configuration
+ * Can use preset or custom colors
+ */
+export interface SiteThemeConfig {
+  preset?: ThemeId; // Use built-in theme preset
+  customColors?: {
+    primary?: string;
+    secondary?: string;
+    accent?: string;
+    background?: string;
+    text?: string;
+  };
+  fonts?: {
+    heading?: string;
+    body?: string;
+  };
+  borderRadius?: 'none' | 'small' | 'medium' | 'large' | 'full';
 }
 
 export interface SiteMetadata {
@@ -66,17 +87,6 @@ export interface SocialLink {
   url: string;
 }
 
-export interface ThemeConfig {
-  preset?: string; // e.g., 'professional-blue', 'medical-green', 'restaurant-warm'
-  colors?: {
-    primary?: string;
-    secondary?: string;
-    accent?: string;
-    background?: string;
-    text?: string;
-  };
-  fonts?: {
-    heading?: string;
-    body?: string;
-  };
-}
+// Legacy ThemeConfig - replaced by SiteThemeConfig above
+// Kept for backward compatibility
+export interface ThemeConfig extends SiteThemeConfig {}

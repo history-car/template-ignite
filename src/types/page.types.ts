@@ -6,10 +6,8 @@
 import { SectionConfig } from './section.types';
 
 export interface PageConfig {
-  path: string; // e.g., '/', '/about', '/services'
-  title: string;
-  description?: string;
-  keywords?: string[];
+  slug: string; // URL slug: 'home', 'about', 'services'
+  metadata?: PageMetadata;
   sections: SectionConfig[];
   layout?: 'default' | 'full-width' | 'centered';
   showHeader?: boolean; // Default: true
@@ -17,11 +15,14 @@ export interface PageConfig {
 }
 
 export interface PageMetadata {
-  title: string;
+  title?: string;
   description?: string;
   keywords?: string[];
   ogImage?: string;
   canonicalUrl?: string;
+  navigation?: boolean; // Include in auto-generated navigation
+  priority?: number; // SEO priority (0.0-1.0)
+  changeFrequency?: 'always' | 'hourly' | 'daily' | 'weekly' | 'monthly' | 'yearly' | 'never';
 }
 
 export interface PageProps {

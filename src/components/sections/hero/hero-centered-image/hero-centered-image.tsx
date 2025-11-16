@@ -91,27 +91,31 @@ export function HeroCenteredImage({ content, theme }: HeroCenteredImageProps) {
             {description && (
               <p {...stylex.props(styles.description)}>{description}</p>
             )}
-            <div {...stylex.props(styles.ctas)}>
-              <Button asChild variant={cta.variant || "primary"} size="large">
-                <a href={cta.href}>{cta.text}</a>
-              </Button>
-              {secondaryCta && (
-                <Button asChild variant="outline" size="large">
-                  <a href={secondaryCta.href}>{secondaryCta.text}</a>
+            {cta && (
+              <div {...stylex.props(styles.ctas)}>
+                <Button asChild variant={cta.variant || "primary"} size="large">
+                  <a href={cta.href}>{cta.text}</a>
                 </Button>
-              )}
+                {secondaryCta && (
+                  <Button asChild variant="outline" size="large">
+                    <a href={secondaryCta.href}>{secondaryCta.text}</a>
+                  </Button>
+                )}
+              </div>
+            )}
+          </div>
+          {image && image.src && (
+            <div {...stylex.props(styles.imageWrapper)}>
+              <Image
+                src={image.src}
+                alt={image.alt || 'Hero image'}
+                width={image.width || 600}
+                height={image.height || 400}
+                {...stylex.props(styles.image)}
+                priority
+              />
             </div>
-          </div>
-          <div {...stylex.props(styles.imageWrapper)}>
-            <Image
-              src={image.src}
-              alt={image.alt}
-              width={image.width || 600}
-              height={image.height || 400}
-              {...stylex.props(styles.image)}
-              priority
-            />
-          </div>
+          )}
         </div>
       </Container>
     </section>

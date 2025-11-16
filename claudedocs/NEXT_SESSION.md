@@ -1,7 +1,7 @@
 # 다음 세션 시작 가이드
 
 **최종 업데이트**: 2025-11-16
-**현재 단계**: Phase 1 완료 ✅ → Phase 2 (Multi-Page System) 시작
+**현재 단계**: Phase 2 완료 ✅ → Phase 3 (Dynamic Routing & UI) 시작
 
 ---
 
@@ -18,12 +18,22 @@
 
 자세한 내용: `claudedocs/IMPLEMENTATION_STATUS.md`
 
-### ⏳ Phase 2: 다음 구현 목표
+### ✅ Phase 2 완료 (2025-11-16)
 
-1. **Site Generator** - 템플릿에서 다중 페이지 자동 생성
-2. **Template System** - YAML/JSON 사이트 템플릿 정의
-3. **Theme System** - 동적 색상 프리셋
-4. **First Site** - 법률사무소 3-5 페이지 사이트
+- **Frontend Performance**: 코드 스플리팅, Lazy Loading (60-70% 번들 감소)
+- **Theme System**: 10개 전문 색상 프리셋 (법률, 의료, 기술 등)
+- **Site Generator**: 다중 페이지 자동 생성 및 라우팅
+- **First Template**: 법률사무소 완전한 4페이지 사이트
+- **Web Vitals**: 성능 모니터링 시스템
+
+자세한 내용: `claudedocs/PHASE2_MULTIPAGE_SYSTEM.md`, `claudedocs/PERFORMANCE_OPTIMIZATIONS.md`
+
+### ⏳ Phase 3: 다음 구현 목표
+
+1. **Dynamic Routing** - Next.js App Router 통합
+2. **Template Preview** - 실시간 템플릿 미리보기 시스템
+3. **Additional Templates** - 의료, 레스토랑 템플릿
+4. **Admin UI** - 템플릿 선택 및 설정 인터페이스
 
 ---
 
@@ -56,135 +66,138 @@ template-ignite/
 
 ## 🚀 다음 세션 시작 방법
 
-### Option 1: 프로토타입 마무리 후 메인 시작 (권장)
+### ⭐ Recommended: Phase 3 Dynamic Routing (다음 세션)
 
-**Step 1: 프로토타입 최종 검증** (10분)
+**Step 1: 현재 상태 확인** (5분)
 
 ```bash
-cd template-builder
-
-# Course 템플릿 마지막 수정
-# src/templates/landing-course.json에서
-# "features" → "details" 변경 (3곳)
+# Phase 2 완료 상태 확인
+cat claudedocs/PHASE2_MULTIPAGE_SYSTEM.md
+cat claudedocs/PERFORMANCE_OPTIMIZATIONS.md
 
 # 빌드 테스트
 npm run build
-
-# 성공 확인
 ```
 
-**Step 2: 메인 프로젝트 설계 확인** (10분)
+**Step 2: Phase 3 로드맵 읽기** (10분)
 
 ```bash
-cd ..
-cat claudedocs/PROJECT_STATUS.md
-cat claudedocs/PROJECT_DESIGN.md
+cat claudedocs/PHASE3_ROADMAP.md
 ```
 
-**Step 3: 메인 프로젝트 구현 시작** (1시간)
+**Step 3: Phase 3 시작** (Claude에게)
 
 ```
-"claudedocs/PROJECT_STATUS.md를 읽고, 루트에 메인 프로젝트를 시작해줘.
-프로토타입의 섹션 컴포넌트를 재사용하면서 다중 페이지 시스템을 구현하는 거야."
+"claudedocs/PHASE3_ROADMAP.md를 읽고 Phase 3를 시작해줘.
+우선순위 1번인 Dynamic Routing부터 구현하고,
+법률사무소 템플릿을 실제로 작동하는 사이트로 만들어줘."
+```
+
+**또는 간단하게**:
+
+```
+"Phase 3 시작! Dynamic routing 구현하고 law firm template 테스트해줘"
 ```
 
 ---
 
-### Option 2: 바로 메인 프로젝트 시작
+### Alternative: 특정 작업만 하고 싶을 때
 
+**성능 테스트만**:
 ```
-"claudedocs/PROJECT_STATUS.md를 읽어줘.
-프로토타입은 완료됐고, 이제 루트에 실제 다중 페이지 생성 시스템을 구현해야 해.
-어떻게 시작하면 좋을지 계획을 세워줘."
+"현재 법률사무소 템플릿으로 성능 테스트 해줘.
+Lighthouse 점수와 Web Vitals 확인하고 싶어."
+```
+
+**추가 템플릿 만들기**:
+```
+"의료 클리닉 템플릿을 만들어줘.
+medical-teal 테마 사용하고 4페이지로 구성해줘."
+```
+
+**문서만 보기**:
+```bash
+# 전체 프로젝트 상태
+cat claudedocs/IMPLEMENTATION_STATUS.md
+
+# Phase 2 상세 내용
+cat claudedocs/PHASE2_MULTIPAGE_SYSTEM.md
+
+# 다음 단계
+cat claudedocs/PHASE3_ROADMAP.md
 ```
 
 ---
 
-## 📋 메인 프로젝트 구현 계획
+## 📋 Phase 3 구현 계획 (다음 세션)
 
-### Phase 1: 프로젝트 초기화 (1-2시간)
+### 우선순위 1: Dynamic Routing (1-2시간) 🔴
 
-```bash
-# 루트에서 실행
-npx create-next-app@latest src --typescript --app --no-tailwind
-# 또는 수동 설정
-```
+**목표**: 법률사무소 템플릿을 실제 작동하는 웹사이트로
 
-**설치할 패키지:**
+**구현할 것**:
+1. `src/app/[slug]/page.tsx` 생성
+2. `generateStaticParams()` 구현
+3. Site generator 통합
+4. 4개 페이지 테스트 (/, /about, /practice-areas, /contact)
 
-- next, react, react-dom
-- @stylexjs/stylex (프로토타입과 동일)
-- lucide-react
-- yaml (템플릿 파싱용)
+**성공 기준**:
+- ✅ 모든 페이지 정상 작동
+- ✅ 빌드 성공
+- ✅ 성능 점수 >90
 
-**초기 구조:**
+### 우선순위 2: 추가 템플릿 (2-3시간) 🟡
 
-```
-src/
-├── app/
-│   ├── layout.tsx
-│   └── page.tsx
-├── components/
-│   ├── layout/          # 신규: Header, Footer, Navigation
-│   ├── sections/        # 복사: template-builder/src/components/sections
-│   └── shared/          # 복사: template-builder/src/components/shared
-├── lib/
-│   ├── site-generator.ts   # 신규: 사이트 생성 엔진
-│   ├── page-builder.ts     # 신규: 페이지 생성 엔진
-│   └── theme-resolver.ts   # 신규: 테마 시스템
-├── types/
-│   ├── site.types.ts       # 신규: 사이트 타입
-│   ├── page.types.ts       # 수정: 다중 페이지 타입
-│   └── section.types.ts    # 복사: 프로토타입
-└── templates/
-    └── sites/              # 신규: 사이트 템플릿
-```
+**의료 클리닉**:
+- medical-teal 테마
+- 4페이지 (Home, Services, Doctors, Contact)
 
-### Phase 2: 핵심 기능 구현 (3-4일)
+**레스토랑**:
+- warm-orange 테마
+- 3페이지 (Home, Menu, Contact)
 
-**우선순위:**
+### 우선순위 3: 템플릿 관리 (2-3시간) 🟢
 
-1. 사이트 템플릿 스키마 정의
-2. 페이지 생성 엔진
-3. Header/Footer 컴포넌트
-4. 자동 네비게이션
-5. 테마 시스템
-
-### Phase 3: 템플릿 작성 (1주)
-
-**목표 템플릿:** (각 3-5 페이지)
-
-1. 법률사무소 (홈, 소개, 업무분야, 연락처)
-2. 병원/클리닉 (홈, 진료과목, 의료진, 예약)
-3. 레스토랑 (홈, 메뉴, 예약, 위치)
+**템플릿 선택 시스템**:
+- 템플릿 레지스트리
+- 환경변수로 전환
+- 문서화
 
 ---
 
 ## 📖 중요 문서
 
-### 즉시 읽어야 할 문서
+### ⭐ 다음 세션 필수 문서
 
-1. **PROJECT_STATUS.md** ⭐
+1. **PHASE3_ROADMAP.md** ⭐⭐⭐
+   - Phase 3 상세 구현 계획
+   - 단계별 체크리스트
+   - 코드 예제 포함
 
-   - 현재 상태 상세 설명
-   - 프로토타입 vs 메인 프로젝트
-   - 다음 단계 계획
+2. **IMPLEMENTATION_STATUS.md** ⭐⭐
+   - Phase 1, 2 완료 상태
+   - Phase 3 목표
+   - 전체 진행 상황
 
-2. **PROJECT_DESIGN.md**
-   - 전체 시스템 아키텍처
-   - 다중 페이지 시스템 설계
-   - 원래 기획 의도
+3. **PHASE2_MULTIPAGE_SYSTEM.md** ⭐
+   - Multi-page 시스템 아키텍처
+   - Theme system 사용법
+   - Site generator API
 
 ### 참고 문서
 
-3. **PROTOTYPE_GUIDE.md**
+4. **PERFORMANCE_OPTIMIZATIONS.md**
+   - 성능 최적화 상세 내용
+   - Web Vitals 모니터링
+   - Bundle 분석
 
-   - 프로토타입에서 뭘 만들었는지
-   - 어떤 컴포넌트를 재사용할지
+5. **PROJECT_DESIGN.md**
+   - 전체 시스템 설계
+   - 컴포넌트 아키텍처
 
-4. **TYPE_DEFINITIONS.md**
-   - 기존 타입 정의
-   - 메인 프로젝트에 맞게 수정 필요
+6. **SESSION_SUMMARY_2025-11-16.md**
+   - 이번 세션에서 한 일
+   - 모든 변경사항 기록
 
 ---
 

@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev --webpack",
     "build": "next build --webpack",
+    "build:analyze": "ANALYZE=true next build --webpack",
     "start": "next start",
     "lint": "eslint",
     "type-check": "tsc --noEmit"
@@ -20,6 +21,7 @@
     "yaml": "^2.8.1"
   },
   "devDependencies": {
+    "@next/bundle-analyzer": "^16.0.3",
     "@stylexswc/rs-compiler": "^0.13.0",
     "@types/node": "^20",
     "@types/react": "^19",
