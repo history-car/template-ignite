@@ -201,7 +201,7 @@
               "name": "date",
               "type": "text",
               "label": "희망 진료일",
-              "placeholder": "2024-01-15",
+              "placeholder": "2025-01-15",
               "required": true
             },
             {

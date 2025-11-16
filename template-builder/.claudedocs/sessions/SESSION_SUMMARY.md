@@ -1,11 +1,13 @@
 # 세션 요약 (Session Summary)
 
 ## 프로젝트 상태
+
 Template Builder - JSON 기반 랜딩 페이지 빌더 시스템
 
 ## 완료된 작업 ✅
 
 ### 1. 컴포넌트 개발 (100% 완료)
+
 - Hero 섹션: HeroCenteredImage, HeroFullWidth, HeroSplitLayout
 - Features 섹션: FeaturesThreeColumn, FeaturesDetailed
 - CTA 섹션: CTASimple, CTASplit
@@ -15,10 +17,12 @@ Template Builder - JSON 기반 랜딩 페이지 빌더 시스템
 - **FAQ 섹션**: FAQAccordion, FAQTwoColumn ✨ NEW
 - **Team 섹션**: TeamGrid, TeamCards ✨ NEW
 - **Stats 섹션**: StatsSimple, StatsHighlight ✨ NEW
-**총 19개 컴포넌트 (기존 11개 + 신규 8개)**
+  **총 19개 컴포넌트 (기존 11개 + 신규 8개)**
 
 ### 2. 템플릿 생성
+
 8개 업종별 템플릿 JSON 파일:
+
 - `landing-law-firm.json` - 법률사무소
 - `landing-medical-clinic.json` - 병원/클리닉
 - `landing-accounting-office.json` - 회계사무소
@@ -29,6 +33,7 @@ Template Builder - JSON 기반 랜딩 페이지 빌더 시스템
 - `landing-course.json` - 온라인 강의 ✨ NEW
 
 ### 3. 페이지 구현
+
 - `/` - 템플릿 갤러리 메인 페이지
 - `/law-firm` - 법률사무소 페이지
 - `/medical` - 병원 페이지
@@ -41,16 +46,20 @@ Template Builder - JSON 기반 랜딩 페이지 빌더 시스템
 - `/course` - 온라인 강의 페이지 ✨ NEW
 
 ### 4. UI 수정
+
 폰트 사이즈 조정 (PC 뷰 최적화):
+
 - ContactSplit: description, labels, inputs (fontSize2/3 → fontSize4/Base)
 - TestimonialsGrid: quote, authorName, authorRole (fontSize1/2/3 → fontSize4/Base/Small)
 - TestimonialsCarousel: authorName, authorRole, navButton (fontSize2/3 → fontSize4/Base)
 
 ### 5. 버그 수정
+
 - 템플릿 variant 네이밍 통일: kebab-case → PascalCase
 - 렌더링 이슈 해결 (accounting, restaurant, portfolio 페이지)
 
 ### 6. 문서화 (100% 완료) ✅
+
 ✅ `README.md` - 프로젝트 전체 개요
 ✅ `docs/TEMPLATE_GUIDE.md` - JSON 템플릿 작성 가이드
 ✅ `docs/COMPONENTS.md` - 컴포넌트 상세 문서
@@ -60,20 +69,24 @@ Template Builder - JSON 기반 랜딩 페이지 빌더 시스템
 ## 현재 상태 ⚠️
 
 **거의 완료! 마지막 수정 필요**
+
 - ✅ 19개 컴포넌트 개발 완료
 - ✅ 8개 템플릿 생성 완료
 - ✅ 11개 페이지 구현 완료
 - ⚠️ Course 템플릿 FeaturesDetailed 수정 필요 (빌드 오류)
 - ✅ 전체 문서화 완료
 
-## 이번 세션 작업 내역 (2024-11-16) 🆕
+## 이번 세션 작업 내역 (2025-11-16) 🆕
 
 ### Phase 1: 신규 템플릿 & 페이지 생성 ✨
+
 - **SaaS 스타트업** (`landing-saas.json`)
+
   - 7개 섹션: Hero → Stats → Features → Pricing → Testimonials → FAQ → CTA
   - PricingThreeColumn, FAQAccordion 활용
 
 - **디자인 에이전시** (`landing-agency.json`)
+
   - 7개 섹션: Hero → Stats → Features → Team → Testimonials → FAQ → Contact
   - TeamCards, StatsHighlight 활용
 
@@ -85,44 +98,53 @@ Template Builder - JSON 기반 랜딩 페이지 빌더 시스템
 ### Phase 2: 빌드 오류 수정 (체계적 디버깅)
 
 **StyleX Border 속성 분리** (6개 컴포넌트)
+
 - FAQAccordion, FAQTwoColumn
 - PricingThreeColumn, PricingComparison
 - StatsHighlight, TeamCards
 - 수정: `border: "1px solid"` → `borderWidth`, `borderStyle`, `borderColor` 분리
 
 **TypeScript 타입 단언** (3개 페이지)
+
 - saas, agency, course 페이지
 - 수정: 모든 섹션 content를 `as any`로 단언
 
 **Testimonials 구조 수정** (3개 템플릿)
+
 - SaaS, Agency, Course 템플릿
 - 수정: `author: { name, role, company }` → 평탄화된 구조
 
 **CTASplit 속성명 수정**
+
 - Course 템플릿
 - 수정: `primaryCta` → `cta`
 
 **FeaturesDetailed 필드명 수정** (1/2 완료)
+
 - ✅ Agency 템플릿 수정 완료
 - ⚠️ Course 템플릿 수정 필요 (다음 세션)
 
-### Phase 3: 네비게이션 개선 (2024-11-16 Latest) ✅
+### Phase 3: 네비게이션 개선 (2025-11-16 Latest) ✅
+
 **루트 페이지 템플릿 갤러리 업데이트**
+
 - 파일: `src/app/page.tsx`
 - 변경: 3개 신규 템플릿 추가 (agency, course, saas)
 - 결과: 5개 → **8개 템플릿** 접근 가능
 - 사용자 경험: 모든 템플릿을 메인 페이지에서 탐색 가능
 
 **빌드 검증**
+
 - ✅ TypeScript 타입 검사 통과
 - ✅ 프로덕션 빌드 성공 (13개 라우트)
 - ✅ 개발 서버 실행 및 테스트 완료
 
 ### Phase 4: 문서화 & 환경 정리
+
 - ✅ README.md 대폭 업데이트
 - ✅ NEXT_SESSION.md - 다음 세션 상세 가이드
 - ✅ SESSION_SUMMARY.md - 현재 세션 요약
-- ✅ SESSION_2024-11-16_NAVIGATION.md - 네비게이션 업데이트 세부 기록
+- ✅ SESSION_2025-11-16_NAVIGATION.md - 네비게이션 업데이트 세부 기록
 - ✅ 개발 서버 프로세스 정리
 - ✅ 포트 클린업 완료
 
@@ -131,12 +153,15 @@ Template Builder - JSON 기반 랜딩 페이지 빌더 시스템
 **⭐ 다음 세션 즉시 작업** → 상세 내역은 `docs/NEXT_SESSION.md` 참고
 
 ### 🚨 최우선 작업 (10분, 필수)
+
 1. **Course 템플릿 FeaturesDetailed 수정**
+
    - 파일: `src/templates/landing-course.json`
    - 수정: 3곳의 `features` 배열을 `details`로 변경
    - 위치: 프론트엔드, 백엔드, 배포 섹션
 
 2. **프로덕션 빌드 실행**
+
    ```bash
    npm run build
    ```
@@ -148,6 +173,7 @@ Template Builder - JSON 기반 랜딩 페이지 빌더 시스템
    - /saas, /agency, /course 페이지 확인
 
 ### 향후 로드맵
+
 1. ~~**추가 섹션** - Pricing, FAQ, Team, Stats~~ ✅ 완료!
 2. ~~**샘플 템플릿 생성** - 새 섹션을 활용한 템플릿~~ ✅ 완료!
 3. **Vercel 배포** - 실제 배포 및 테스트
@@ -157,18 +183,21 @@ Template Builder - JSON 기반 랜딩 페이지 빌더 시스템
 7. **다국어 지원** - i18n 구현
 
 ## 기술 스택
+
 - Next.js 16 (App Router)
 - TypeScript
 - StyleX (Zero-runtime CSS-in-JS)
 - Lucide React (아이콘)
 
 ## 중요 규칙
+
 - **Variant 이름**: 반드시 PascalCase 사용
 - **폰트 사이즈**: PC는 fontSize4/Base/Small 기준
 - **이미지**: Unsplash 또는 `/images/` 경로 사용
 - **아이콘**: Lucide React 100+ 아이콘 사용 가능
 
 ## 파일 구조
+
 ```
 template-builder/
 ├── src/
@@ -214,6 +243,7 @@ template-builder/
 ```
 
 ## 개발 서버
+
 ```bash
 npm run dev
 # http://localhost:3000

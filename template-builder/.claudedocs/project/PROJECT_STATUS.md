@@ -1,6 +1,6 @@
 # Template Builder - 프로젝트 현황 (Claude Docs)
 
-**최종 업데이트**: 2024-11-16
+**최종 업데이트**: 2025-11-16
 **프로젝트 버전**: 0.1.0
 **상태**: 개발 중 (90% 완료)
 
@@ -11,6 +11,7 @@
 **Template Builder**는 JSON 기반의 랜딩 페이지 빌더 시스템입니다. 다양한 업종에 최적화된 템플릿을 제공하며, 컴포넌트 기반 아키텍처로 쉽게 커스터마이징할 수 있습니다.
 
 ### 핵심 기술 스택
+
 - **Framework**: Next.js 16 (App Router)
 - **Language**: TypeScript
 - **Styling**: StyleX (Zero-runtime CSS-in-JS)
@@ -24,54 +25,63 @@
 ### 1. 컴포넌트 개발 (19개)
 
 #### Hero Sections (3개)
+
 - ✅ `HeroCenteredImage` - 중앙 정렬 + 우측 이미지
 - ✅ `HeroFullWidth` - 전체 배경 이미지
 - ✅ `HeroSplitLayout` - 좌우 분할 레이아웃
 
 #### Features Sections (2개)
+
 - ✅ `FeaturesThreeColumn` - 3열 그리드
 - ✅ `FeaturesDetailed` - 상세 설명 + 이미지
 
 #### CTA Sections (2개)
+
 - ✅ `CTASimple` - 중앙 정렬
 - ✅ `CTASplit` - 분할 레이아웃
 
 #### Testimonials Sections (2개)
+
 - ✅ `TestimonialsGrid` - 그리드 레이아웃
 - ✅ `TestimonialsCarousel` - 캐러셀
 
 #### Contact Sections (2개)
+
 - ✅ `ContactForm` - 중앙 폼
 - ✅ `ContactSplit` - 연락처 정보 + 폼
 
 #### Pricing Sections (2개) ✨ NEW
+
 - ✅ `PricingThreeColumn` - 3열 요금제
 - ✅ `PricingComparison` - 비교 테이블
 
 #### FAQ Sections (2개) ✨ NEW
+
 - ✅ `FAQAccordion` - 아코디언
 - ✅ `FAQTwoColumn` - 2열 레이아웃
 
 #### Team Sections (2개) ✨ NEW
+
 - ✅ `TeamGrid` - 그리드 레이아웃
 - ✅ `TeamCards` - 카드 레이아웃
 
 #### Stats Sections (2개) ✨ NEW
+
 - ✅ `StatsSimple` - 단순 통계
 - ✅ `StatsHighlight` - 강조 통계
 
 ### 2. 템플릿 생성 (8개)
 
-| # | 템플릿 | 파일 | 페이지 | 섹션 수 | 상태 |
-|---|--------|------|--------|---------|------|
-| 1 | 법률사무소 ⚖️ | `landing-law-firm.json` | `/law-firm` | 3 | ✅ |
-| 2 | 병원/클리닉 🏥 | `landing-medical-clinic.json` | `/medical` | 5 | ✅ |
-| 3 | 회계사무소 💼 | `landing-accounting-office.json` | `/accounting` | 5 | ✅ |
-| 4 | 레스토랑 🍽️ | `landing-restaurant.json` | `/restaurant` | 5 | ✅ |
-| 5 | 포트폴리오 💻 | `landing-portfolio.json` | `/portfolio` | 5 | ✅ |
-| 6 | **SaaS 🚀** | `landing-saas.json` | `/saas` | 6 | ✅ |
-| 7 | **에이전시 🎨** | `landing-agency.json` | `/agency` | 5 | ✅ |
-| 8 | **온라인 강좌 📚** | `landing-course.json` | `/course` | 6 | ⚠️ |
+| #   | 템플릿             | 파일                             | 페이지        | 섹션 수 | 상태 |
+| --- | ------------------ | -------------------------------- | ------------- | ------- | ---- |
+| 1   | 법률사무소 ⚖️      | `landing-law-firm.json`          | `/law-firm`   | 3       | ✅   |
+| 2   | 병원/클리닉 🏥     | `landing-medical-clinic.json`    | `/medical`    | 5       | ✅   |
+| 3   | 회계사무소 💼      | `landing-accounting-office.json` | `/accounting` | 5       | ✅   |
+| 4   | 레스토랑 🍽️        | `landing-restaurant.json`        | `/restaurant` | 5       | ✅   |
+| 5   | 포트폴리오 💻      | `landing-portfolio.json`         | `/portfolio`  | 5       | ✅   |
+| 6   | **SaaS 🚀**        | `landing-saas.json`              | `/saas`       | 6       | ✅   |
+| 7   | **에이전시 🎨**    | `landing-agency.json`            | `/agency`     | 5       | ✅   |
+| 8   | **온라인 강좌 📚** | `landing-course.json`            | `/course`     | 6       | ⚠️   |
 
 **참고**: Course 템플릿은 FeaturesDetailed 섹션의 `features` → `details` 필드명 수정 필요
 
@@ -102,7 +112,7 @@
 ✅ docs/DEPLOYMENT.md                     - 배포 가이드 (Vercel, Docker, PM2)
 ✅ docs/SESSION_SUMMARY.md                - 세션 요약
 ✅ docs/NEXT_SESSION.md                   - 다음 세션 가이드
-✅ docs/SESSION_2024-11-16_NAVIGATION.md  - 네비게이션 업데이트 기록
+✅ docs/SESSION_2025-11-16_NAVIGATION.md  - 네비게이션 업데이트 기록
 ✅ .claudedocs/PROJECT_STATUS.md          - 프로젝트 현황 (이 파일)
 ```
 
@@ -180,11 +190,20 @@ Rendered HTML
 
 ```typescript
 // section.types.ts
-type SectionType = "hero" | "features" | "cta" | "testimonials" | "contact" | "pricing" | "faq" | "team" | "stats";
+type SectionType =
+  | "hero"
+  | "features"
+  | "cta"
+  | "testimonials"
+  | "contact"
+  | "pricing"
+  | "faq"
+  | "team"
+  | "stats";
 
 interface Section {
   type: SectionType;
-  variant: string;  // PascalCase (e.g., "HeroCenteredImage")
+  variant: string; // PascalCase (e.g., "HeroCenteredImage")
   content: Record<string, any>;
 }
 
@@ -209,7 +228,13 @@ interface HeroCenteredImageProps {
 
 ```typescript
 // 토큰 시스템
-import { spacing, colors, radius, typography, breakpoints } from "@/styles/tokens.stylex";
+import {
+  spacing,
+  colors,
+  radius,
+  typography,
+  breakpoints,
+} from "@/styles/tokens.stylex";
 
 // 스타일 정의
 const styles = stylex.create({
@@ -217,7 +242,7 @@ const styles = stylex.create({
     padding: spacing.xl,
     backgroundColor: colors.background,
     borderRadius: radius.lg,
-  }
+  },
 });
 
 // 반응형
@@ -228,7 +253,7 @@ const responsive = stylex.create({
     [`@media (max-width: ${breakpoints.tablet})`]: {
       gridTemplateColumns: "1fr",
     },
-  }
+  },
 });
 ```
 
@@ -284,12 +309,14 @@ export function Hero({ content }: HeroProps) {
 ## 🚨 알려진 이슈
 
 ### 1. Course 템플릿 - FeaturesDetailed 수정 필요
+
 **파일**: `src/templates/landing-course.json`
 **문제**: FeaturesDetailed 컴포넌트의 `features` 배열을 `details`로 변경 필요
 **위치**: 3곳 (프론트엔드, 백엔드, 배포 섹션)
 **우선순위**: 🚨 High (다음 세션 최우선)
 
 **수정 방법**:
+
 ```json
 // ❌ 잘못된 구조
 {
@@ -319,6 +346,7 @@ export function Hero({ content }: HeroProps) {
 ## 📊 프로젝트 메트릭
 
 ### 코드 통계
+
 - **컴포넌트**: 19개 섹션 + 3개 공유 = 22개
 - **페이지**: 11개
 - **템플릿**: 8개
@@ -326,12 +354,14 @@ export function Hero({ content }: HeroProps) {
 - **문서**: 10개
 
 ### 빌드 성능
+
 - **컴파일 시간**: ~1.6초
 - **정적 생성**: 357.6ms (13개 페이지)
 - **타입 체크**: 통과 ✅
 - **번들 크기**: 최적화됨
 
 ### 코드 품질
+
 - ✅ TypeScript strict mode
 - ✅ StyleX 토큰 시스템
 - ✅ PascalCase variant 네이밍
@@ -343,18 +373,22 @@ export function Hero({ content }: HeroProps) {
 ## 🎯 다음 단계 (Roadmap)
 
 ### 즉시 (다음 세션)
+
 1. ⚠️ **Course 템플릿 FeaturesDetailed 수정** (10분)
 2. 🔧 **프로덕션 빌드 재실행** (5분)
 3. 🧪 **전체 페이지 테스트** (10분)
 
 ### 단기 (1-2주)
+
 1. **Vercel 배포**
+
    - Vercel 프로젝트 생성
    - 환경 변수 설정
    - 프로덕션 배포
    - 도메인 연결
 
 2. **Contact Form 백엔드**
+
    - API 라우트 구현 (`/api/contact`)
    - 이메일 전송 (Resend/SendGrid)
    - Form validation
@@ -366,12 +400,15 @@ export function Hero({ content }: HeroProps) {
    - 테마 전환 UI
 
 ### 중기 (1-2개월)
+
 1. **시각적 편집기**
+
    - 드래그앤드롭 빌더
    - 실시간 미리보기
    - JSON 내보내기
 
 2. **다국어 지원**
+
    - i18n 구현
    - 한국어/영어 지원
    - 번역 관리
@@ -381,7 +418,9 @@ export function Hero({ content }: HeroProps) {
    - 동적 콘텐츠 관리
 
 ### 장기 (3개월+)
+
 1. **고급 기능**
+
    - A/B 테스팅
    - 분석 대시보드
    - SEO 최적화 도구
@@ -396,6 +435,7 @@ export function Hero({ content }: HeroProps) {
 ## 📖 참고 자료
 
 ### 내부 문서
+
 - `README.md` - 프로젝트 개요
 - `QUICK_START.md` - 빠른 시작
 - `docs/TEMPLATE_GUIDE.md` - 템플릿 작성
@@ -403,6 +443,7 @@ export function Hero({ content }: HeroProps) {
 - `docs/DEPLOYMENT.md` - 배포 가이드
 
 ### 외부 링크
+
 - [Next.js 16 Documentation](https://nextjs.org/docs)
 - [StyleX Documentation](https://stylexjs.com)
 - [Lucide Icons](https://lucide.dev)
@@ -413,18 +454,21 @@ export function Hero({ content }: HeroProps) {
 ## 🤝 기여 가이드
 
 ### 코드 컨벤션
+
 1. **Variant 이름**: PascalCase (`HeroCenteredImage`)
 2. **파일 이름**: kebab-case (`hero-centered-image.tsx`)
 3. **폰트 사이즈**: PC는 `fontSize4`, `fontSizeBase`, `fontSizeSmall`
 4. **StyleX**: 토큰 시스템 사용, border 속성 분리
 
 ### 새 섹션 추가하기
+
 1. 컴포넌트 생성: `src/components/sections/[type]/[variant].tsx`
 2. 타입 정의: `src/types/section.types.ts`
 3. 레지스트리 등록: `src/lib/section-registry.ts`
 4. 문서화: `docs/COMPONENTS.md`
 
 ### 새 템플릿 추가하기
+
 1. JSON 생성: `src/templates/landing-[name].json`
 2. 페이지 생성: `src/app/[name]/page.tsx`
 3. 루트 갤러리 업데이트: `src/app/page.tsx`
@@ -436,7 +480,7 @@ export function Hero({ content }: HeroProps) {
 
 **프로젝트**: Template Builder
 **Repository**: /Users/kimmanjoong/private-project/template-ignite/template-builder
-**최종 업데이트**: 2024-11-16
+**최종 업데이트**: 2025-11-16
 
 ---
 

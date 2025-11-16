@@ -261,7 +261,7 @@ seo:
 client:
   id: "kim-lawyer"
   name: "김OO 변호사"
-  createdAt: "2024-01-15"
+  createdAt: "2025-01-15"
 
 # 사용할 템플릿
 page:
@@ -316,7 +316,7 @@ overrides:
 theme:
   preset: "professional-blue"
   customColors:
-    primary: "#2563EB"  # 좀 더 밝은 블루
+    primary: "#2563EB" # 좀 더 밝은 블루
 
 # SEO 커스터마이징
 seo:
@@ -338,7 +338,7 @@ seo:
 client:
   id: "lee-lawyer"
   name: "이OO 변호사"
-  createdAt: "2024-01-20"
+  createdAt: "2025-01-20"
 
 page:
   title: "이OO 법률사무소"
@@ -375,7 +375,7 @@ overrides:
 
 theme:
   customColors:
-    primary: "#DC2626"  # 레드 톤 (긴급성 강조)
+    primary: "#DC2626" # 레드 톤 (긴급성 강조)
 
 seo:
   title: "이OO 변호사 - 형사 전문 변호사"
@@ -632,6 +632,7 @@ theme:
 프로젝트에서 사용 가능한 아이콘들:
 
 ### 비즈니스 & 법률
+
 - `Scale` - 저울 (법률, 정의)
 - `Gavel` - 망치 (법원, 판결)
 - `Briefcase` - 서류가방 (비즈니스)
@@ -639,28 +640,33 @@ theme:
 - `Shield` - 방패 (보호, 보안)
 
 ### 커뮤니케이션
+
 - `Phone` - 전화
 - `Mail` - 이메일
 - `MessageSquare` - 메시지
 - `Send` - 보내기
 
 ### 시간 & 속도
+
 - `Clock` - 시계
 - `Zap` - 번개 (빠름, 에너지)
 - `Rocket` - 로켓 (성장, 속도)
 
 ### 품질 & 성과
+
 - `Star` - 별 (프리미엄, 품질)
 - `Award` - 상 (성취)
 - `CheckCircle` - 체크 (완료, 성공)
 - `TrendingUp` - 상승 (성장)
 
 ### 사용자 & 팀
+
 - `Users` - 사용자들
 - `UserCheck` - 사용자 확인
 - `Heart` - 하트 (좋아요)
 
 ### 기술 & 데이터
+
 - `BarChart` - 막대 그래프
 - `PieChart` - 원 그래프
 - `Globe` - 지구본 (글로벌)
@@ -668,17 +674,20 @@ theme:
 - `Database` - 데이터베이스
 
 ### 위치 & 내비게이션
+
 - `MapPin` - 지도 핀
 - `Navigation` - 내비게이션
 - `Compass` - 나침반
 
 ### 쇼핑 & 배송
+
 - `ShoppingCart` - 장바구니
 - `Truck` - 트럭 (배송)
 - `Package` - 패키지
 - `CreditCard` - 신용카드
 
 ### 기타
+
 - `Coffee` - 커피
 - `Home` - 집
 - `Settings` - 설정
@@ -691,10 +700,12 @@ theme:
 ## 다음 세션에서 사용 방법
 
 1. **프로토타입 구현 시**:
+
    - `landing-law-firm.json` 복사하여 사용
    - 이미지 경로만 실제 파일로 교체
 
 2. **실제 고객 프로젝트 시**:
+
    - 적절한 템플릿 선택
    - `configs/` 폴더에 고객 설정 파일 생성
    - 오버라이드 방식으로 커스터마이징

@@ -150,7 +150,7 @@ npx tsc --noEmit
 6. **`docs/ICONS.md`** - 100+ 아이콘 목록
 7. **`docs/DEPLOYMENT.md`** - 배포 가이드
 8. **`docs/NEXT_SESSION.md`** - 다음 세션 가이드
-9. **`docs/SESSION_2024-11-16_NAVIGATION.md`** - 네비게이션 업데이트 기록
+9. **`docs/SESSION_2025-11-16_NAVIGATION.md`** - 네비게이션 업데이트 기록
 
 ---
 
@@ -317,5 +317,5 @@ spacing["5xl"]; // 96px
 
 ---
 
-**마지막 업데이트**: 2024-11-16
+**마지막 업데이트**: 2025-11-16
 **다음 작업**: Course 템플릿 FeaturesDetailed 수정 → 빌드 → 테스트 → 배포 준비
