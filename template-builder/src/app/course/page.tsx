@@ -1,22 +1,6 @@
-import { HeroCenteredImage } from "@/components/sections/hero/hero-centered-image";
-import { StatsSimple } from "@/components/sections/stats/stats-simple";
-import { FeaturesThreeColumn } from "@/components/sections/features/features-three-column";
-import { FeaturesDetailed } from "@/components/sections/features/features-detailed";
-import { PricingComparison } from "@/components/sections/pricing/pricing-comparison";
-import { TestimonialsCarousel } from "@/components/sections/testimonials/testimonials-carousel";
-import { FAQAccordion } from "@/components/sections/faq/faq-accordion";
-import { CTASplit } from "@/components/sections/cta/cta-split";
+import { PageRenderer } from "@/components/page-builder/page-renderer";
+import { transformTemplate } from "@/lib/template-transformer";
 import template from "@/templates/landing-course.json";
-import type {
-  HeroCenteredImageProps,
-  StatsSimpleProps,
-  FeaturesThreeColumnProps,
-  FeaturesDetailedProps,
-  PricingComparisonProps,
-  TestimonialsCarouselProps,
-  FAQAccordionProps,
-  CTASplitProps,
-} from "@/types/section.types";
 
 export const metadata = {
   title: template.page.title,
@@ -24,45 +8,17 @@ export const metadata = {
 };
 
 export default function CoursePage() {
+  const pageData = transformTemplate(template);
+
   return (
-    <main>
-      {template.sections.map((section, index) => {
-        const key = `section-${index}`;
-
-        if (section.variant === "HeroCenteredImage") {
-          return <HeroCenteredImage key={key} content={section.content as any} />;
-        }
-
-        if (section.variant === "StatsSimple") {
-          return <StatsSimple key={key} content={section.content as any} />;
-        }
-
-        if (section.variant === "FeaturesThreeColumn") {
-          return <FeaturesThreeColumn key={key} content={section.content as any} />;
-        }
-
-        if (section.variant === "FeaturesDetailed") {
-          return <FeaturesDetailed key={key} content={section.content as any} />;
-        }
-
-        if (section.variant === "PricingComparison") {
-          return <PricingComparison key={key} content={section.content as any} />;
-        }
-
-        if (section.variant === "TestimonialsCarousel") {
-          return <TestimonialsCarousel key={key} content={section.content as any} />;
-        }
-
-        if (section.variant === "FAQAccordion") {
-          return <FAQAccordion key={key} content={section.content as any} />;
-        }
-
-        if (section.variant === "CTASplit") {
-          return <CTASplit key={key} content={section.content as any} />;
-        }
-
-        return null;
-      })}
-    </main>
+    <PageRenderer
+      pageConfig={{
+        id: "course-landing",
+        title: pageData.title,
+        description: pageData.description,
+        path: "/course",
+        sections: pageData.sections,
+      }}
+    />
   );
 }

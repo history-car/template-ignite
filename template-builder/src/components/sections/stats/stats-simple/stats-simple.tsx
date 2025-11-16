@@ -6,7 +6,6 @@ import * as stylex from "@stylexjs/stylex";
 import {
   spacing,
   colors,
-  radius,
   typography,
   breakpoints,
 } from "@/styles/tokens.stylex";

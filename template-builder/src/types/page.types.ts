@@ -1,11 +1,23 @@
 import { SectionType, SectionPropsMap } from "@/lib/section-registry";
 
-// Dynamic section definition
-export interface SectionConfig<T extends SectionType = SectionType> {
+// Discriminated union: Each section type has its own specific config
+type SectionConfigUnion = {
+  [K in SectionType]: {
+    id: string;
+    type: K;
+    props: SectionPropsMap[K];
+  };
+}[SectionType];
+
+// Export the union type as SectionConfig
+export type SectionConfig = SectionConfigUnion;
+
+// Legacy generic type for backward compatibility (deprecated)
+export type SectionConfigGeneric<T extends SectionType = SectionType> = {
   id: string;
   type: T;
   props: SectionPropsMap[T];
-}
+};
 
 // Page configuration
 export interface PageConfig {

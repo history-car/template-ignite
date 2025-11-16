@@ -8,7 +8,6 @@ import Image from "next/image";
 import * as stylex from "@stylexjs/stylex";
 import {
   spacing,
-  colors,
   typography,
   breakpoints,
 } from "@/styles/tokens.stylex";
@@ -82,7 +81,7 @@ const styles = stylex.create({
   },
 });
 
-export function HeroFullWidth({ content, theme }: HeroFullWidthProps) {
+export function HeroFullWidth({ content }: HeroFullWidthProps) {
   const {
     headline,
     subheadline,

@@ -122,7 +122,7 @@ export function TestimonialsGrid({ content, theme }: TestimonialsGridProps) {
               )}
 
               <blockquote {...stylex.props(styles.quote)}>
-                "{testimonial.quote}"
+                &ldquo;{testimonial.quote}&rdquo;
               </blockquote>
 
               <div {...stylex.props(styles.authorSection)}>

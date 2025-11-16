@@ -1,6 +1,5 @@
 import { ComponentType } from 'react';
 import {
-  BaseSectionProps,
   HeroCenteredImageProps,
   HeroFullWidthProps,
   HeroSplitLayoutProps,
